@@ -30,6 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
     activateSemester(initialSem);
   }
 
+  // ===== Pages & Navigation =====
+  const navLinks = document.querySelectorAll('.navbar nav ul li a');
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) {
+      link.classList.add('active');
+    }
+  });
+
   // ===== Smooth Scroll =====
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -46,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const navUl = document.querySelector('.navbar nav ul');
       const hamburger = document.querySelector('.hamburger');
-      if (navUl.classList.contains('active')) {
+      if (navUl && navUl.classList.contains('active')) {
         navUl.classList.remove('active');
         hamburger.classList.remove('active');
       }
@@ -57,10 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const hamburger = document.querySelector('.hamburger');
   const navUl = document.querySelector('.navbar nav ul');
   
-  hamburger.addEventListener('click', function() {
-    navUl.classList.toggle('active');
-    hamburger.classList.toggle('active');
-  });
+  if (hamburger && navUl) {
+    hamburger.addEventListener('click', function() {
+      navUl.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  }
 
   // ===== Navbar Scroll Effect =====
   const navbar = document.querySelector('.navbar');
@@ -128,6 +141,52 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ===== Contact Form Handling =====
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const topic = String(formData.get('topic') || 'General Contact').trim();
+      const message = String(formData.get('message') || '').trim();
+
+      if (!name || !email || !message) {
+        formStatus.textContent = 'Please fill out your name, email, and message.';
+        formStatus.className = 'form-status error';
+        return;
+      }
+
+      const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+      if (!emailIsValid) {
+        formStatus.textContent = 'Please enter a valid email address.';
+        formStatus.className = 'form-status error';
+        return;
+      }
+
+      const subject = `Portfolio Contact: ${topic || 'General Contact'}`;
+      const body = `Name: ${name}\nEmail: ${email}\nTopic: ${topic || 'General Contact'}\n\nMessage:\n${message}`;
+
+      const mailtoLink = `mailto:mdfahim.foysal.mail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      formStatus.textContent = 'Preparing your email client...';
+      formStatus.className = 'form-status';
+
+      window.location.href = mailtoLink;
+
+      setTimeout(() => {
+        formStatus.textContent = 'Your email draft is ready. Please send it to complete the message.';
+        formStatus.className = 'form-status success';
+        contactForm.reset();
+      }, 250);
+    });
+  }
+
   // ===== Download CV Button =====
   const downloadBtn = document.getElementById('downloadCV');
   if (downloadBtn) {
@@ -154,10 +213,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.querySelectorAll('.navbar nav ul li a').forEach(link => {
+      const href = link.getAttribute('href');
+      const pageFile = href && href.includes('.html') ? href : null;
+
       link.style.opacity = '0.85';
       link.style.background = 'transparent';
-      
-      if (link.getAttribute('href') === '#' + current) {
+
+      if (pageFile === currentPage) {
+        link.style.opacity = '1';
+        link.style.background = 'rgba(255, 255, 255, 0.15)';
+      }
+
+      if (href === '#' + current) {
         link.style.opacity = '1';
         link.style.background = 'rgba(255, 255, 255, 0.15)';
       }
