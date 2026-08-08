@@ -675,7 +675,7 @@ body {
 }
 
 .semester-panel {
-  display: none;
+  display: block;
   animation: fadeSlide 0.4s ease;
 }
 
