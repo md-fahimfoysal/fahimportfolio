@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
   
   // Set current year in footer
-  document.getElementById('current-year').textContent = new Date().getFullYear();
+  const currentYear = document.getElementById('current-year');
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+
+  const cvDate = new Date().toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+  const cvDateHeader = document.getElementById('cv-date');
+  if (cvDateHeader) {
+    cvDateHeader.textContent = cvDate;
+  }
 
   // ===== Semester Tabs =====
   const semesterTabs = document.querySelectorAll('.semester-tab');
@@ -192,8 +205,12 @@ document.addEventListener('DOMContentLoaded', function() {
   if (downloadBtn) {
     downloadBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      alert('CV download functionality will be available soon. Please contact me directly for a copy of my CV.');
+      window.open('cv.html?print=1', '_blank');
     });
+  }
+
+  if (document.body.classList.contains('cv-page') && window.location.search.includes('print=1')) {
+    window.setTimeout(() => window.print(), 400);
   }
 
   // ===== Active Nav Link on Scroll =====
