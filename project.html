@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | MD Fahim Foysal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs"></i></span><span>MD Fahim Foysal</span></a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="projects" class="section-padding">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="cad">CAD</button>
+          <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+          <button class="filter-btn" data-filter="automation">Automation</button>
+        </div>
+        <div class="project-grid">
+          <article class="project-card" data-category="cad">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80" alt=""><div class="project-overlay"><span>CAD Design</span></div></div>
+            <div class="project-info"><h3>Mechanical Part Design</h3><p>Basic concept development and CAD modeling practice for a simple assembly.</p><div class="project-tags"><span>SolidWorks</span><span>CAD</span></div><a class="project-readmore" href="project-mechanical-part-design.html">Project Details</a></div>
+          </article>
+          <article class="project-card" data-category="manufacturing">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" alt=""><div class="project-overlay"><span>Manufacturing</span></div></div>
+            <div class="project-info"><h3>Workshop Process Study</h3><p>Study of production flow, machine operation, and basic manufacturing planning.</p><div class="project-tags"><span>Factory</span><span>Process</span></div><a class="project-readmore" href="project-workshop-process-study.html">Project Details</a></div>
+          </article>
+          <article class="project-card" data-category="automation">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1552664730-71149c33998e?auto=format&fit=crop&q=80" alt=""><div class="project-overlay"><span>Automation</span></div></div>
+            <div class="project-info"><h3>Smart Systems Concept</h3><p>A learning-focused concept for monitoring and machine-control workflow ideas.</p><div class="project-tags"><span>PLC</span><span>Automation</span></div><a class="project-readmore" href="project-smart-systems-concept.html">Project Details</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title small-title">Project Capability Map</h2>
+          <p class="section-intro">Each project direction supports a technical profile that combines design thinking, manufacturing exposure, and automation awareness.</p>
+        </div>
+        <div class="project-detail-grid">
+          <article class="project-detail-card">
+            <div class="panel-icon"><i class="fas fa-drafting-compass"></i></div>
+            <h3>Design Practice</h3>
+            <p>Developing engineering concepts through drawing, modeling, and basic design reasoning.</p>
+          </article>
+          <article class="project-detail-card">
+            <div class="panel-icon"><i class="fas fa-industry"></i></div>
+            <h3>Manufacturing Study</h3>
+            <p>Investigating production flow, machine capability, and process quality points.</p>
+          </article>
+          <article class="project-detail-card">
+            <div class="panel-icon"><i class="fas fa-robot"></i></div>
+            <h3>Automation Systems</h3>
+            <p>Learning how automation, sensors, control logic, and monitoring can improve operation.</p>
+          </article>
+          <article class="project-detail-card">
+            <div class="panel-icon"><i class="fas fa-chart-pie"></i></div>
+            <h3>Optimization Thinking</h3>
+            <p>Improving system performance through practical balance between reliability, function, and resource use.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info"><h3>MD Fahim Foysal</h3><p>Mechanical Engineering Student | Shandong University of Technology</p></div>
+        <div class="footer-social"><a href="https://www.linkedin.com/in/md-fahim-foysal-5b8a673b3" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://github.com/md-fahimfoysal" target="_blank"><i class="fab fa-github"></i></a><a href="https://www.researchgate.net/profile/fahimfoysal" target="_blank"><i class="fab fa-researchgate"></i></a><a href="#"><i class="fab fa-orcid"></i></a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; <span id="current-year"></span> MD Fahim Foysal. All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
