@@ -5,51 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Activities | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-  <header class="navbar">
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+  <header class="navbar" role="banner">
     <div class="container">
-      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs"></i></span><span>MD Fahim Foysal</span></a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-      <nav>
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span><span>MD Fahim Foysal</span></a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button"><span></span><span></span><span></span></button>
+      <nav id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
           <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section id="activities" class="section-padding bg-light">
       <div class="container">
-        <h2 class="section-title">Activities</h2>
+        <h2 class="section-title"><i class="fas fa-users"></i> Activities</h2>
         <div class="activity-grid">
           <article class="activity-card">
-            <h3>Engineering Circles</h3>
+            <h3><i class="fas fa-gears"></i> Engineering Circles</h3>
             <ul>
               <li><strong>Mechanical Club</strong><span>Student Team</span><p>Participating in design, workshop and technical learning circles.</p></li>
               <li><strong>Workshop Practice</strong><span>Design Lab</span><p>Learning practical manufacturing and mechanical operations.</p></li>
             </ul>
           </article>
           <article class="activity-card">
-            <h3>Learning Activities</h3>
+            <h3><i class="fas fa-book"></i> Learning Activities</h3>
             <ul>
               <li><strong>Research Reading</strong><span>Self Study</span><p>Reviewing journals and engineering topics that connect theory to machines.</p></li>
               <li><strong>CAD Practice</strong><span>Learning Track</span><p>Building design confidence through drawing and modeling exercises.</p></li>
             </ul>
           </article>
           <article class="activity-card">
-            <h3>Career Development</h3>
+            <h3><i class="fas fa-briefcase"></i> Career Development</h3>
             <ul>
               <li><strong>Language Improvement</strong><span>Chinese</span><p>Focused improvement in communication and professional language skills.</p></li>
               <li><strong>Technical Skills</strong><span>Future</span><p>Preparing for certifications, simulation and manufacturing systems.</p></li>
@@ -62,22 +65,22 @@
     <section class="section-padding">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title small-title">Professional Development Activities</h2>
+          <h2 class="section-title small-title"><i class="fas fa-briefcase"></i> Professional Development Activities</h2>
           <p class="section-intro">I am building a technical profile through a combination of engineering exposure, independent learning, and cross-disciplinary communication.</p>
         </div>
         <div class="activity-detail-grid">
           <article class="activity-detail-card">
-            <span class="highlight-label">Learning Habits</span>
+            <span class="highlight-label"><i class="fas fa-lightbulb"></i> Learning Habits</span>
             <h3>Self-Driven Study</h3>
             <p>I regularly study engineering journals, online learning resources, manufacturing documentation, and design-related solutions to support structured learning.</p>
           </article>
           <article class="activity-detail-card">
-            <span class="highlight-label">Lab Practice</span>
+            <span class="highlight-label"><i class="fas fa-tools"></i> Lab Practice</span>
             <h3>Workshop Connection</h3>
             <p>My learning process includes moving from classroom theory to workshop logic, material handling, machine use, and design application.</p>
           </article>
           <article class="activity-detail-card">
-            <span class="highlight-label">Personal Growth</span>
+            <span class="highlight-label"><i class="fas fa-users"></i> Personal Growth</span>
             <h3>Team & Communication</h3>
             <p>I am strengthening my ability to communicate technical ideas and collaborate through English, Chinese, and academic project presentation.</p>
           </article>
@@ -87,7 +90,7 @@
 
     <section class="section-padding">
       <div class="container">
-        <h2 class="section-title">Co-curricular Activities</h2>
+        <h2 class="section-title"><i class="fas fa-handshake"></i> Co-curricular Activities</h2>
         <div class="cocurricular-grid">
           <div class="award-box" aria-label="Co-curricular activity coming soon"><span class="coming-soon"><i class="fas fa-hourglass-half"></i>Coming Soon</span></div>
           <div class="award-box" aria-label="Co-curricular activity coming soon"><span class="coming-soon"><i class="fas fa-hourglass-half"></i>Coming Soon</span></div>
