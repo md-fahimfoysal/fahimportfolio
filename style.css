@@ -625,14 +625,23 @@ i[class*="fa"] {
   gap: 5px;
   cursor: pointer;
   z-index: 1001;
+  padding: 8px;
+  border-radius: 4px;
+  background: rgba(0, 229, 255, 0.08);
+  transition: var(--transition);
+}
+
+.hamburger:hover {
+  background: rgba(0, 229, 255, 0.15);
 }
 
 .hamburger span {
   width: 28px;
   height: 3px;
-  background: var(--text-light);
+  background: #00E5FF;
   border-radius: 3px;
   transition: var(--transition);
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
 }
 
 .hamburger.active span:nth-child(1) {
@@ -4004,9 +4013,14 @@ img {
     font-size: 0.85rem;
   }
 
+  .hamburger {
+    padding: 6px;
+  }
+
   .hamburger span {
     width: 24px;
-    height: 2px;
+    height: 2.5px;
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.5);
   }
 }
 
