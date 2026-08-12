@@ -5,35 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-  <header class="navbar">
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+  <header class="navbar" role="banner">
     <div class="container">
-      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs"></i></span><span>MD Fahim Foysal</span></a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-      <nav>
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span><span>MD Fahim Foysal</span></a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button"><span></span><span></span><span></span></button>
+      <nav id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
           <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section id="contact" class="section-padding contact-section">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title">Contact</h2>
+          <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
           <p class="section-intro">Let’s connect about research, engineering collaboration, internships, or academic learning.</p>
         </div>
         <div class="contact-grid">
@@ -68,8 +71,8 @@
                 <span class="contact-icon-large"><i class="fas fa-map-marker-alt"></i></span>
                 <div>
                   <span class="contact-label">Location</span>
-                  <span class="contact-text location-line"><img class="location-flag" src="https://flagcdn.com/w40/cn.png" alt="China flag">Present: Zibo, Shandong, China</span>
-                  <span class="contact-text location-line"><img class="location-flag" src="https://flagcdn.com/w40/bd.png" alt="Bangladesh flag">Permanent: Khulna, Bagerhat, Bangladesh</span>
+                  <span class="contact-text location-line"><img class="location-flag" src="https://flagcdn.com/w40/cn.png" alt="China flag" loading="lazy">Present: Zibo, Shandong, China</span>
+                  <span class="contact-text location-line"><img class="location-flag" src="https://flagcdn.com/w40/bd.png" alt="Bangladesh flag" loading="lazy">Permanent: Khulna, Bagerhat, Bangladesh</span>
                 </div>
               </div>
             </div>
@@ -118,7 +121,7 @@
     <section class="section-padding bg-light">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title small-title">Connect And Collaborate</h2>
+          <h2 class="section-title small-title"><i class="fas fa-envelope-open"></i> Connect And Collaborate</h2>
           <p class="section-intro">I am open to engineering discussions, research queries, internship opportunities, student collaboration, and technical exchange.</p>
         </div>
         <div class="contact-detail-grid">
