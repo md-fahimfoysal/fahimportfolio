@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academics | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
   <header class="navbar">
@@ -20,32 +22,55 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
-          <li><a href="goals.html">Goals</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="achievements.html">Achievements</a></li>          <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section id="academics" class="section-padding">
       <div class="container">
-        <h2 class="section-title">Course Syllabus</h2>
-        <p class="contact-subtitle">B.Sc. Mechanical Design, Manufacturing & Automation | Shandong University of Technology | 2026-2030</p>
+        <div class="academics-credential-header">
+          <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Academic Credentials</h2>
+          <div class="credential-box">
+            <div class="credential-item">
+              <span class="credential-label"><i class="fas fa-graduation-cap"></i> Degree</span>
+              <span class="credential-value">Bachelor of Science (B.Sc.)</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label"><i class="fas fa-book-open"></i> Major</span>
+              <span class="credential-value">Mechanical Design, Manufacturing & Automation</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label"><i class="fas fa-university"></i> Institution</span>
+              <span class="credential-value">Shandong University of Technology</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label"><i class="fas fa-calendar"></i> Duration</span>
+              <span class="credential-value">2026–2030</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label"><i class="fas fa-bookmark"></i> Total Credits</span>
+              <span class="credential-value">145+ Credits</span>
+            </div>
+          </div>
+        </div>
+        <h3 class="subsection-title"><i class="fas fa-book"></i> Course Syllabus by Semester</h3>
+        <p class="contact-subtitle">Complete curriculum across eight semesters, including core engineering subjects and language requirements.</p>
         <div class="semester-tabs">
-          <button class="semester-tab active" data-sem="1">Sem 1 <span>(17 Cr)</span></button>
-          <button class="semester-tab" data-sem="2">Sem 2 <span>(32.75 Cr)</span></button>
-          <button class="semester-tab" data-sem="3">Sem 3 <span>(23.75 Cr)</span></button>
-          <button class="semester-tab" data-sem="4">Sem 4 <span>(20.75 Cr)</span></button>
-          <button class="semester-tab" data-sem="5">Sem 5 <span>(16.5 Cr)</span></button>
-          <button class="semester-tab" data-sem="6">Sem 6 <span>(12.75 Cr)</span></button>
-          <button class="semester-tab" data-sem="7">Sem 7 <span>(10.5 Cr)</span></button>
-          <button class="semester-tab" data-sem="8">Sem 8 <span>(16 Cr)</span></button>
+          <button class="semester-tab active" data-sem="1"><i class="fas fa-calendar"></i> Sem 1 <span>(17 Cr)</span></button>
+          <button class="semester-tab" data-sem="2"><i class="fas fa-calendar"></i> Sem 2 <span>(32.75 Cr)</span></button>
+          <button class="semester-tab" data-sem="3"><i class="fas fa-calendar"></i> Sem 3 <span>(23.75 Cr)</span></button>
+          <button class="semester-tab" data-sem="4"><i class="fas fa-calendar"></i> Sem 4 <span>(20.75 Cr)</span></button>
+          <button class="semester-tab" data-sem="5"><i class="fas fa-calendar"></i> Sem 5 <span>(16.5 Cr)</span></button>
+          <button class="semester-tab" data-sem="6"><i class="fas fa-calendar"></i> Sem 6 <span>(12.75 Cr)</span></button>
+          <button class="semester-tab" data-sem="7"><i class="fas fa-calendar"></i> Sem 7 <span>(10.5 Cr)</span></button>
+          <button class="semester-tab" data-sem="8"><i class="fas fa-calendar"></i> Sem 8 <span>(16 Cr)</span></button>
         </div>
         <div class="semester-content">
           <div class="semester-panel active" data-sem="1">
@@ -143,8 +168,8 @@
     <section class="section-padding">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title small-title">Previous Academic Background</h2>
-          <p class="section-intro">Secondary and higher secondary subjects that prepared me for bachelor-level mechanical engineering study.</p>
+          <h2 class="section-title small-title">Prior Academic Foundation</h2>
+          <p class="section-intro">Secondary and tertiary education in mathematics, sciences, and technical subjects that prepared the foundation for bachelor-level mechanical engineering study.</p>
         </div>
         <div class="academic-background-grid">
           <article class="summary-panel">
