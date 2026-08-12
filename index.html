@@ -5,40 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MD Fahim Foysal - Mechanical Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
+  <!-- Skip to main content link (accessibility) -->
+  <a href="#main" class="skip-to-main">Skip to main content</a>
 
   <!-- Navigation -->
-  <header class="navbar">
+  <header class="navbar" role="banner">
     <div class="container">
       <a href="index.html" class="logo">
-        <span class="logo-icon"><i class="fas fa-cogs"></i></span>
+        <span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span>
         <span>MD Fahim Foysal</span>
       </a>
-      <div class="hamburger">
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button">
         <span></span>
         <span></span>
         <span></span>
-      </div>
-      <nav>
+      </button>
+      <nav id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
           <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- Hero Section -->
     <section id="home" class="hero-section">
       <div class="hero-particles"></div>
@@ -59,17 +63,17 @@
           </p>
           <p class="hero-description" data-en="I dream to build a strong mechanical engineering foundation and prepare for advanced graduate study with a focus on aerospace engineering, systems design, and manufacturing technology." data-bn="আমি মেকানিক্যাল ইঞ্জিনিয়ারিং-এ একটি শক্ত ভিত্তি গড়ে তুলতে চাই এবং মহাকাশ প্রকৌশল, সিস্টেম ডিজাইন এবং ম্যানুফ্যাকচারিং প্রযুক্তি নিয়ে উন্নত গ্রাজুয়েট স্টাডির প্রস্তুতি নিতে চাই।" data-zh="我希望为机械工程打下扎实基础，并为以航空航天工程、系统设计和制造技术为重点的研究生学习做准备。">I dream to build a strong mechanical engineering foundation and prepare for advanced graduate study with a focus on aerospace engineering, systems design, and manufacturing technology.</p>
           <div class="hero-buttons">
-            <a href="contact.html" class="btn-primary">
-              <i class="fas fa-paper-plane"></i>
-              <span data-en="Get In Touch" data-bn="যোগাযোগ করুন" data-zh="联系我">Get In Touch</span>
-            </a>
-            <a href="academics.html" class="btn-secondary">
-              <i class="fas fa-book-open"></i>
-              <span data-en="View Syllabus" data-bn="সিলেবাস দেখুন" data-zh="查看课程">View Syllabus</span>
-            </a>
-            <a href="cv.html?print=1" class="btn-outline" id="downloadCV" target="_blank">
+            <a href="cv.html?print=1" class="btn-primary" id="downloadCV" target="_blank">
               <i class="fas fa-download"></i>
               <span data-en="Download CV" data-bn="সিভি ডাউনলোড" data-zh="下载简历">Download CV</span>
+            </a>
+            <a href="academics.html" class="btn-secondary">
+              <i class="fas fa-user-graduate"></i>
+              <span data-en="View Academic Profile" data-bn="একাডেমিক প্রোফাইল দেখুন" data-zh="查看学术资料">View Academic Profile</span>
+            </a>
+            <a href="contact.html" class="btn-outline">
+              <i class="fas fa-paper-plane"></i>
+              <span data-en="Contact Me" data-bn="আমার সাথে যোগাযোগ করুন" data-zh="联系我">Contact Me</span>
             </a>
           </div>
           <div class="scroll-indicator">
@@ -83,25 +87,27 @@
     <section class="home-summary-strip">
       <div class="container highlight-strip">
         <div class="summary-card">
-          <i class="fas fa-user-graduate"></i>
-          <div>
-            <h3>About</h3>
-            <p>Mechanical Engineering student at Shandong University of Technology.</p>
+          <div class="summary-top">
+            <span class="summary-icon"><i class="fas fa-user-graduate"></i></span>
           </div>
+          <h3>About</h3>
+          <p>Mechanical Engineering student at Shandong University of Technology.</p>
         </div>
+
         <div class="summary-card">
-          <i class="fas fa-book-open"></i>
-          <div>
-            <h3>Academics</h3>
-            <p>B.Sc. Mechanical Design, Manufacturing & Automation.</p>
+          <div class="summary-top">
+            <span class="summary-icon"><i class="fas fa-book-open"></i></span>
           </div>
+          <h3>Academics</h3>
+          <p>B.Sc. Mechanical Design, Manufacturing & Automation.</p>
         </div>
+
         <div class="summary-card">
-          <i class="fas fa-rocket"></i>
-          <div>
-            <h3>Research</h3>
-            <p>Design, simulation, manufacturing and future aerospace-related systems.</p>
+          <div class="summary-top">
+            <span class="summary-icon"><i class="fas fa-rocket"></i></span>
           </div>
+          <h3>Research</h3>
+          <p>Design, simulation, manufacturing and future aerospace-related systems.</p>
         </div>
       </div>
     </section>
@@ -114,15 +120,15 @@
             <strong>About Me</strong>
             <small>Personal profile</small>
           </a>
-          <a class="quick-link-card" href="achievements.html">
-            <span><i class="fas fa-trophy"></i></span>
-            <strong>Achievements</strong>
-            <small>Certificates & awards</small>
-          </a>
           <a class="quick-link-card" href="academics.html">
             <span><i class="fas fa-graduation-cap"></i></span>
             <strong>Academics</strong>
             <small>Semester syllabus</small>
+          </a>
+          <a class="quick-link-card" href="achievements.html">
+            <span><i class="fas fa-trophy"></i></span>
+            <strong>Achievements</strong>
+            <small>Certificates & awards</small>
           </a>
           <a class="quick-link-card" href="research.html">
             <span><i class="fas fa-flask"></i></span>
@@ -151,6 +157,7 @@
           </a>
         </div>
       </div>
+    </section>
 
   </main>
 
@@ -174,5 +181,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="space-animation.js"></script>
 </body>
 </html>
