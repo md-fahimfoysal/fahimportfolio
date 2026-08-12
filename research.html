@@ -5,63 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-  <header class="navbar">
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+  <header class="navbar" role="banner">
     <div class="container">
-      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs"></i></span><span>MD Fahim Foysal</span></a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-      <nav>
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span><span>MD Fahim Foysal</span></a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button"><span></span><span></span><span></span></button>
+      <nav id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
           <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section id="research" class="section-padding bg-light">
       <div class="container">
-        <h2 class="section-title">Research Interest</h2>
-        <div class="research-grid">
-          <article class="research-card">
-            <span class="research-badge ongoing">Ongoing</span>
-            <h3>Mechanical Design Optimization</h3>
-            <div class="meta"><i class="fas fa-flask"></i>Design Systems</div>
-            <p>I am exploring how CAD, simulation, and design thinking can improve structure, efficiency, and practical engineering decisions.</p>
-            <div class="research-tags"><span>CAD</span><span>Simulation</span><span>Optimization</span></div>
-          </article>
-          <article class="research-card">
-            <span class="research-badge">Focus</span>
-            <h3>Manufacturing & Automation</h3>
-            <div class="meta"><i class="fas fa-cogs"></i>Production Systems</div>
-            <p>I am interested in process flow, industrial automation, machine reliability, and how smart production methods support quality and performance.</p>
-            <div class="research-tags"><span>Automation</span><span>Robotics</span><span>Industry 4.0</span></div>
-          </article>
-          <article class="research-card">
-            <span class="research-badge">Future Focus</span>
-            <h3>Aerospace Structures</h3>
-            <div class="meta"><i class="fas fa-plane"></i>Advanced Mechanics</div>
-            <p>I want to study lightweight structures, vibration, fatigue, and design methods that support safe and efficient aerospace systems.</p>
-            <div class="research-tags"><span>Aerospace</span><span>Structures</span><span>Vibration</span></div>
-          </article>
-          <article class="research-card">
-            <span class="research-badge">Exploration</span>
-            <h3>Thermal & Sustainable Systems</h3>
-            <div class="meta"><i class="fas fa-temperature-half"></i>Energy Engineering</div>
-            <p>I am also interested in heat transfer, energy efficiency, renewable systems, and practical ways to reduce resource use in engineering.</p>
-            <div class="research-tags"><span>Thermal systems</span><span>Renewable energy</span><span>Efficiency</span></div>
-          </article>
+        <h2 class="section-title"><i class="fas fa-flask"></i> Research Interests & Direction</h2>
+        <div class="research-intro-box">
+          <p>Focused on practical applications of mechanical engineering in design, manufacturing systems, and aerospace technologies. Interested in connecting academic study with real-world engineering challenges through analysis, simulation, and systems thinking.</p>
+        </div>
+        
+        <div class="research-areas">
+          <div class="research-area-group">
+            <h3 class="research-area-title"><i class="fas fa-flask-vial"></i> Core Research Areas</h3>
+            
+            <article class="research-card">
+              <div class="research-card-header">
+                <h4>Mechanical Design & Optimization</h4>
+                <span class="research-badge ongoing">Current Interest</span>
+              </div>
+              <div class="research-card-content">
+                <p class="research-focus"><strong>Technical Focus:</strong> CAD-based design, structural optimization, load analysis, and design methodology.</p>
+                <p class="research-description">Exploring how simulation tools and systematic design thinking improve engineering decisions and component efficiency.</p>
+                <div class="research-tags"><span>CAD / Modeling</span><span>Simulation</span><span>Structural Analysis</span></div>
+              </div>
+            </article>
+
+            <article class="research-card">
+              <div class="research-card-header">
+                <h4>Manufacturing & Production Systems</h4>
+                <span class="research-badge">Professional Focus</span>
+              </div>
+              <div class="research-card-content">
+                <p class="research-focus"><strong>Technical Focus:</strong> Process control, industrial automation, machine reliability, and Industry 4.0 technologies.</p>
+                <p class="research-description">Interested in understanding production flow, automation, and quality-oriented manufacturing methods that support advanced engineering.</p>
+                <div class="research-tags"><span>Automation</span><span>Robotics</span><span>Quality Systems</span></div>
+              </div>
+            </article>
+
+            <article class="research-card">
+              <div class="research-card-header">
+                <h4>Aerospace Structures & Systems</h4>
+                <span class="research-badge">Future Direction</span>
+              </div>
+              <div class="research-card-content">
+                <p class="research-focus"><strong>Technical Focus:</strong> Lightweight structures, vibration analysis, fatigue, and advanced aerospace design methods.</p>
+                <p class="research-description">Aspiring to study aerospace engineering at the graduate level, with emphasis on mechanical systems, structural mechanics, and advanced manufacturing technologies.</p>
+                <div class="research-tags"><span>Aerospace Systems</span><span>Structures</span><span>Advanced Mechanics</span></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="research-area-group">
+            <h3 class="research-area-title"><i class="fas fa-lightbulb"></i> Supporting Technical Interest</h3>
+            
+            <article class="research-card">
+              <div class="research-card-header">
+                <h4>Thermal & Energy Systems</h4>
+                <span class="research-badge">Complementary Area</span>
+              </div>
+              <div class="research-card-content">
+                <p class="research-focus"><strong>Technical Focus:</strong> Heat transfer, energy efficiency, and renewable energy systems.</p>
+                <p class="research-description">Interest in practical energy engineering and sustainable design methods for improving efficiency in mechanical systems.</p>
+                <div class="research-tags"><span>Thermal Systems</span><span>Efficiency</span><span>Renewable Energy</span></div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -69,39 +103,24 @@
     <section class="section-padding">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title small-title">Research Development Path</h2>
-          <p class="section-intro">My current research direction is rooted in practical mechanical engineering topics, with a future interest in aerospace and advanced systems graduate study.</p>
+          <h2 class="section-title small-title"><i class="fas fa-graduation-cap"></i> Graduate Study & Professional Path</h2>
+          <p class="section-intro">Building a foundation in mechanical engineering fundamentals to pursue advanced study and research in aerospace and systems engineering.</p>
         </div>
         <div class="research-detail-grid">
           <article class="research-detail-card">
-            <span class="research-badge ongoing">Study Area</span>
-            <h3>Design Optimization</h3>
-            <p>I want to improve my understanding of machine assemblies, product structures, load behavior, and design decisions through study and modeling.</p>
-            <div class="plain-tags">
-              <span>CAD-based design</span>
-              <span>Load analysis</span>
-              <span>Material decisions</span>
-            </div>
+            <div class="panel-icon"><i class="fas fa-book"></i></div>
+            <h3>Academic Preparation</h3>
+            <p>Completing B.Sc. coursework in design, manufacturing, materials, and mechanical systems. Building analytical and technical skills through academic study and coursework projects.</p>
           </article>
           <article class="research-detail-card">
-            <span class="research-badge">System Study</span>
-            <h3>Manufacturing Systems</h3>
-            <p>My focus includes production flow, process logic, machine capability, automation, and quality-oriented production thinking.</p>
-            <div class="plain-tags">
-              <span>Industry 4.0</span>
-              <span>Process control</span>
-              <span>Robotics</span>
-            </div>
+            <div class="panel-icon"><i class="fas fa-flask"></i></div>
+            <h3>Research Development</h3>
+            <p>Developing understanding of design optimization, production systems, and aerospace technologies through study and practical application in academic projects.</p>
           </article>
           <article class="research-detail-card">
-            <span class="research-badge">Future Path</span>
-            <h3>Aerospace Foundation</h3>
-            <p>I want to prepare for a master's pathway that connects mechanical fundamentals with aerospace systems, structures, and advanced engineering analysis.</p>
-            <div class="plain-tags">
-              <span>Aerospace systems</span>
-              <span>Graduate study</span>
-              <span>Advanced mechanics</span>
-            </div>
+            <div class="panel-icon"><i class="fas fa-rocket"></i></div>
+            <h3>Future Direction</h3>
+            <p>Pursuing master's degree with specialization in aerospace engineering, focusing on mechanical systems, advanced structures, and manufacturing innovation.</p>
           </article>
         </div>
       </div>
