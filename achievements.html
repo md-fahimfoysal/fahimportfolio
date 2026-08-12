@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Achievements | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
   <header class="navbar">
@@ -20,112 +22,164 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
-          <li><a href="goals.html">Goals</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="achievements.html">Achievements</a></li>          <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="section-padding bg-light">
       <div class="container">
-        <h2 class="section-title">Achievements & Certificates</h2>
-        <div class="achievement-grid">
-          <div class="achievement-card">
-            <div class="card-icon"><i class="fas fa-trophy"></i></div>
-            <h3>Academic Excellence</h3>
-            <ul>
-              <li><strong>SSC - Science - GPA 5 out of 5 (2022)</strong><span>2020 - 2022</span><p>Railway Public High School - Outstanding performance with a perfect GPA in the Science group.</p></li>
-              <li><strong>HSC - Science - GPA 5 out of 5 (2024)</strong><span>2023 - 2024</span><p>Bangladesh Nou Bahini School and College - Foundation in Physics, Chemistry & Mathematics.</p></li>
-              <li><strong>B.Sc. Mechanical Engineering (Ongoing)</strong><span>2026 - 2030</span><p>Shandong University of Technology - Mechanical Design, Manufacturing & Automation.</p></li>
-            </ul>
-          </div>
-          <div class="achievement-card">
-            <div class="card-icon"><i class="fas fa-certificate"></i></div>
-            <h3>Certificates & Learning</h3>
-            <div class="certificate-gallery">
-              <div class="certificate-card">
-                <div class="certificate-img"><i class="fas fa-language"></i><div class="certificate-overlay"><i class="fas fa-check"></i></div></div>
-                <p>Duolingo English Test - Score 115</p>
-                <small>Recorded: 22 March 2026 | Valid for 2 years</small>
-                <a class="certificate-link" href="https://drive.google.com/open?id=1gYo1MKSF-O1b2tUpKxtAmFtcSqQFm4nF&usp=drive_fs" target="_blank" rel="noopener">View Result</a>
-              </div>
-              <div class="certificate-card">
-                <div class="certificate-img"><i class="fas fa-language"></i><div class="certificate-overlay"><i class="fas fa-hourglass-half"></i></div></div>
-                <p>HSK Level 4 (In Progress)</p>
-              </div>
-              <div class="certificate-card">
-                <div class="certificate-img"><i class="fas fa-drafting-compass"></i><div class="certificate-overlay"><i class="fas fa-hourglass-half"></i></div></div>
-                <p>SolidWorks / CAD Practice</p>
-              </div>
-              <div class="certificate-card">
-                <div class="certificate-img"><i class="fas fa-chart-line"></i><div class="certificate-overlay"><i class="fas fa-hourglass-half"></i></div></div>
-                <p>ANSYS / Simulation Learning</p>
-              </div>
-              <div class="certificate-card">
-                <div class="certificate-img"><i class="fas fa-cogs"></i><div class="certificate-overlay"><i class="fas fa-hourglass-half"></i></div></div>
-                <p>PLC & Automation Basics</p>
-              </div>
+        <div class="achievement-header">
+          <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements & Academic Record</h2>
+          <p class="section-intro">A concise record of academic performance, language and technical development, and professional preparation.</p>
+        </div>
+
+        <div class="achievement-record-grid">
+          <article class="achievement-category-card">
+            <div class="category-header">
+              <span class="category-pill academic"><i class="fas fa-graduation-cap"></i> Academic achievement</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-date">2022</span>
+                <div>
+                  <h3>SSC - Science</h3>
+                  <p>Railway Public High School | GPA 5.00 / 5.00</p>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">2024</span>
+                <div>
+                  <h3>HSC - Science</h3>
+                  <p>Bangladesh Nou Bahini School and College | GPA 5.00 / 5.00</p>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">2026–2030</span>
+                <div>
+                  <h3>B.Sc. Mechanical Engineering</h3>
+                  <p>Shandong University of Technology | Mechanical Design, Manufacturing & Automation</p>
+                </div>
+              </li>
+            </ul>
+          </article>
 
-    <section class="section-padding">
-      <div class="container">
-        <div class="section-title-wrap">
-          <h2 class="section-title small-title">Achievement Roadmap</h2>
-          <p class="section-intro">My achievement record is shaped through consistent learning, academic focus, and long-term professional preparation.</p>
-        </div>
-        <div class="achievement-detail-grid">
-          <article class="achievement-detail-card">
-            <span class="highlight-label">Academic Foundation</span>
-            <h3>Secondary & Higher Education</h3>
-            <p>I completed SSC with a GPA 5.00 and advanced into science-based higher secondary education. These outcomes created the basis for my transition into engineering studies.</p>
-            <ul class="plain-list">
-              <li>Strong mathematics and science preparation</li>
-              <li>Evidence of high academic discipline</li>
-              <li>Logical readiness for engineering learning</li>
+          <article class="achievement-category-card">
+            <div class="category-header">
+              <span class="category-pill scholarship"><i class="fas fa-piggy-bank"></i> Scholarships</span>
+            </div>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-date">N/A</span>
+                <div>
+                  <h3>No formal scholarship record listed</h3>
+                  <p>Scholarship details are not currently included in the portfolio record.</p>
+                </div>
+              </li>
             </ul>
           </article>
-          <article class="achievement-detail-card">
-            <span class="highlight-label">International Training</span>
-            <h3>Current Learning Track</h3>
-            <p>My academic path in China is helping me combine engineering education with language improvement and technical discipline. This progress is part of my foundation for future graduate study.</p>
-            <ul class="plain-list">
-              <li>Chinese language and academic communication</li>
-              <li>Mechanical engineering course progression</li>
-              <li>Preparation for future postgraduate direction</li>
-            </ul>
-          </article>
-          <article class="achievement-detail-card">
-            <span class="highlight-label">Certification Direction</span>
-            <h3>Next Milestones</h3>
-            <p>My immediate learning path is focused on software, technical systems, and practical capability rather than claiming finished certifications.</p>
-            <ul class="plain-list">
-              <li>HSK Level 4 progress</li>
-              <li>SolidWorks / CAD technical workflow</li>
-              <li>ANSYS and automation study support</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section-padding bg-light">
-      <div class="container">
-        <h2 class="section-title">Awards</h2>
-        <div class="award-grid">
-          <div class="award-box" aria-label="Award coming soon"><span class="coming-soon"><i class="fas fa-hourglass-half"></i>Coming Soon</span></div>
-          <div class="award-box" aria-label="Award coming soon"><span class="coming-soon"><i class="fas fa-hourglass-half"></i>Coming Soon</span></div>
-          <div class="award-box" aria-label="Award coming soon"><span class="coming-soon"><i class="fas fa-hourglass-half"></i>Coming Soon</span></div>
+          <article class="achievement-category-card">
+            <div class="category-header">
+              <span class="category-pill certification"><i class="fas fa-certificate"></i> Certifications</span>
+            </div>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-date">2026</span>
+                <div>
+                  <h3>Duolingo English Test</h3>
+                  <p>Score: 115 | Recorded on 22 March 2026</p>
+                  <a class="achievement-link" href="https://drive.google.com/open?id=1gYo1MKSF-O1b2tUpKxtAmFtcSqQFm4nF&usp=drive_fs" target="_blank" rel="noopener">View Result</a>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">In progress</span>
+                <div>
+                  <h3>HSK Level 4</h3>
+                  <p>Language learning is currently in progress.</p>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">In progress</span>
+                <div>
+                  <h3>SolidWorks / CAD Practice</h3>
+                  <p>Ongoing technical skill development in design workflows.</p>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">In progress</span>
+                <div>
+                  <h3>ANSYS / Simulation Learning</h3>
+                  <p>Technical study focused on analytical and simulation-based learning.</p>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">In progress</span>
+                <div>
+                  <h3>PLC & Automation Basics</h3>
+                  <p>Ongoing learning in control logic and automation concepts.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="achievement-category-card">
+            <div class="category-header">
+              <span class="category-pill competition"><i class="fas fa-medal"></i> Competitions</span>
+            </div>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-date">N/A</span>
+                <div>
+                  <h3>No competition record listed</h3>
+                  <p>No formal competition results are currently included in this record.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="achievement-category-card">
+            <div class="category-header">
+              <span class="category-pill leadership"><i class="fas fa-star"></i> Leadership</span>
+            </div>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-date">N/A</span>
+                <div>
+                  <h3>No leadership record listed</h3>
+                  <p>No formal leadership roles are currently included in the portfolio.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="achievement-category-card">
+            <div class="category-header">
+              <span class="category-pill other"><i class="fas fa-award"></i> Other significant achievements</span>
+            </div>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-date">Ongoing</span>
+                <div>
+                  <h3>Academic foundation for engineering</h3>
+                  <p>Strong preparation in mathematics and science created a foundation for engineering study.</p>
+                </div>
+              </li>
+              <li>
+                <span class="achievement-date">Ongoing</span>
+                <div>
+                  <h3>Technical preparation</h3>
+                  <p>Continuous development in design, simulation, and automation supports future graduate study direction.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
