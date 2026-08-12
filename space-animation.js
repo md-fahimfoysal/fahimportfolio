@@ -664,8 +664,10 @@
       var targetH = 4.2;
       if (aspect >= 1.2) {
         camera.fov = 2 * Math.atan(targetH / 9) * 180 / Math.PI;
+      } else if (aspect >= 0.5) {
+        camera.fov = 2 * Math.atan((targetH * 1.5 / aspect) / 9) * 180 / Math.PI;
       } else {
-        camera.fov = 2 * Math.atan((targetH * 1.2 / aspect) / 9) * 180 / Math.PI;
+        camera.fov = 2 * Math.atan((targetH * 2 / aspect) / 9) * 180 / Math.PI;
       }
       camera.updateProjectionMatrix();
     } catch (e) {
