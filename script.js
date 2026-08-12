@@ -453,34 +453,3 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-      
-      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-        current = section.getAttribute('id');
-      }
-    });
-    
-    document.querySelectorAll('.navbar nav ul li a').forEach(link => {
-      const href = link.getAttribute('href');
-      const pageFile = href && href.includes('.html') ? href : null;
-
-      link.style.opacity = '0.85';
-      link.style.background = 'transparent';
-
-      if (pageFile === currentPage) {
-        link.style.opacity = '1';
-        link.style.background = 'rgba(255, 255, 255, 0.15)';
-      }
-
-      if (href === '#' + current) {
-        link.style.opacity = '1';
-        link.style.background = 'rgba(255, 255, 255, 0.15)';
-      }
-    });
-  });
-
-  console.log('%c MD Fahim Foysal Portfolio %c Ready ',
-    'background: #1a237e; color: white; padding: 8px 12px; border-radius: 4px 0 0 4px; font-weight: bold;',
-    'background: #4caf50; color: white; padding: 8px 12px; border-radius: 0 4px 4px 0;'
-  );
-});
-
