@@ -5,97 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-  <header class="navbar">
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+  <header class="navbar" role="banner">
     <div class="container">
-      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs"></i></span><span>MD Fahim Foysal</span></a>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-      <nav>
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span><span>MD Fahim Foysal</span></a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button"><span></span><span></span><span></span></button>
+      <nav id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
           <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section id="projects" class="section-padding">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-intro">These projects inspire me a lot because they connect design, manufacturing, automation, and aerospace ideas with practical engineering problems.</p>
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="cad">CAD</button>
-          <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
-          <button class="filter-btn" data-filter="automation">Automation</button>
-          <button class="filter-btn" data-filter="aerospace">Aerospace</button>
-          <button class="filter-btn" data-filter="materials">Materials</button>
+        <h2 class="section-title"><i class="fas fa-cogs"></i> Engineering Projects</h2>
+        <p class="section-intro">Academic and learning projects spanning mechanical design, manufacturing systems, and automation. Each project develops technical skills across different engineering disciplines.</p>
+        
+        <div class="project-engineering-grid">
+          <!-- Project 1: Mechanical Part Design -->
+          <article class="project-engineering-card">
+            <div class="project-header">
+              <i class="fas fa-cube project-card-icon"></i>
+              <h3 class="project-title">Mechanical Part Design</h3>
+              <span class="project-status">Future Project</span>
+            </div>
+            
+            <p class="project-description">Concept development and CAD modeling of a compact mounting bracket for mechanical assemblies, covering design methodology, dimensioning, and manufacturability review.</p>
+            
+            <div class="project-metadata">
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-tag"></i> Field</span>
+                <span class="metadata-value">Mechanical Design</span>
+              </div>
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-wrench"></i> Tools</span>
+                <span class="metadata-value">SolidWorks, CAD Modeling</span>
+              </div>
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-lightbulb"></i> Technical Focus</span>
+                <span class="metadata-value">Parametric 3D modeling, assembly relationships, design review</span>
+              </div>
+            </div>
+            
+            <div class="project-skills">
+              <span class="skill-tag">CAD</span>
+              <span class="skill-tag">Modeling</span>
+              <span class="skill-tag">Design Review</span>
+              <span class="skill-tag">Aerospace Applications</span>
+            </div>
+            
+            <a href="project-mechanical-part-design.html" class="project-link">View Project Details <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <!-- Project 2: Workshop Process Study -->
+          <article class="project-engineering-card">
+            <div class="project-header">
+              <i class="fas fa-industry project-card-icon"></i>
+              <h3 class="project-title">Workshop Process Study</h3>
+              <span class="project-status">Future Project</span>
+            </div>
+            
+            <p class="project-description">Manufacturing systems analysis and process mapping of workshop operations, from material preparation through final inspection, identifying efficiency and quality improvement opportunities.</p>
+            
+            <div class="project-metadata">
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-tag"></i> Field</span>
+                <span class="metadata-value">Manufacturing Engineering</span>
+              </div>
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-wrench"></i> Methods</span>
+                <span class="metadata-value">Process mapping, time study, 5S analysis</span>
+              </div>
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-lightbulb"></i> Technical Focus</span>
+                <span class="metadata-value">Production flow, workstation organization, quality checkpoints</span>
+              </div>
+            </div>
+            
+            <div class="project-skills">
+              <span class="skill-tag">Process Mapping</span>
+              <span class="skill-tag">Manufacturing</span>
+              <span class="skill-tag">Quality Systems</span>
+              <span class="skill-tag">5S Methodology</span>
+            </div>
+            
+            <a href="project-workshop-process-study.html" class="project-link">View Project Details <i class="fas fa-arrow-right"></i></a>
+          </article>
+
+          <!-- Project 3: Smart Systems Concept -->
+          <article class="project-engineering-card">
+            <div class="project-header">
+              <i class="fas fa-microchip project-card-icon"></i>
+              <h3 class="project-title">Smart Systems Concept</h3>
+              <span class="project-status">Future Project</span>
+            </div>
+            
+            <p class="project-description">Automation and monitoring system concept combining sensors, PLC logic, and dashboard interface for machine condition tracking and preventive maintenance decision support.</p>
+            
+            <div class="project-metadata">
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-tag"></i> Field</span>
+                <span class="metadata-value">Industrial Automation</span>
+              </div>
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-wrench"></i> Tools</span>
+                <span class="metadata-value">PLC logic, sensors, monitoring dashboard</span>
+              </div>
+              <div class="metadata-item">
+                <span class="metadata-label"><i class="fas fa-lightbulb"></i> Technical Focus</span>
+                <span class="metadata-value">Sensor integration, control logic, status monitoring, preventive maintenance</span>
+              </div>
+            </div>
+            
+            <div class="project-skills">
+              <span class="skill-tag">PLC</span>
+              <span class="skill-tag">Automation</span>
+              <span class="skill-tag">Sensor Systems</span>
+              <span class="skill-tag">Monitoring</span>
+            </div>
+            
+            <a href="project-smart-systems-concept.html" class="project-link">View Project Details <i class="fas fa-arrow-right"></i></a>
+          </article>
         </div>
-        <div class="project-grid">
-          <article class="project-card" data-category="cad aerospace materials">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80" alt="Engineering design workspace with a digital model"><div class="project-overlay"><span>CAD Design</span></div></div>
-            <div class="project-info"><h3>Mechanical Part Design</h3><p>Basic concept development and CAD modeling practice for a simple assembly, with future interest in lightweight aerospace parts.</p><div class="project-tags"><span>SolidWorks</span><span>CAD</span><span>Aerospace</span></div><a class="project-readmore" href="project-mechanical-part-design.html">See Details</a></div>
-          </article>
-          <article class="project-card" data-category="manufacturing materials">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" alt="Industrial workshop and manufacturing facility"><div class="project-overlay"><span>Manufacturing</span></div></div>
-            <div class="project-info"><h3>Workshop Process Study</h3><p>Study of production flow, machine operation, material handling, and basic manufacturing planning.</p><div class="project-tags"><span>Factory</span><span>Process</span><span>Materials</span></div><a class="project-readmore" href="project-workshop-process-study.html">See Details</a></div>
-          </article>
-          <article class="project-card" data-category="automation">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=90" alt="Industrial robot used for automation"><div class="project-overlay"><span>Automation</span></div></div>
-            <div class="project-info"><h3>Smart Systems Concept</h3><p>A learning-focused concept for monitoring and machine-control workflow ideas.</p><div class="project-tags"><span>PLC</span><span>Automation</span></div><a class="project-readmore" href="project-smart-systems-concept.html">See Details</a></div>
-          </article>
-        </div>
-        <p class="image-credit">Project images: Unsplash photos used under the Unsplash License.</p>
       </div>
     </section>
 
     <section class="section-padding bg-light">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title small-title">Project Capability Map</h2>
-          <p class="section-intro">Each project direction supports a technical profile that combines design thinking, manufacturing exposure, and automation awareness.</p>
+          <h2 class="section-title small-title"><i class="fas fa-tools"></i> Technical Development Areas</h2>
+          <p class="section-intro">Projects are structured to build a multidisciplinary engineering foundation spanning design, manufacturing systems, automation, and aerospace technologies.</p>
         </div>
-        <div class="project-detail-grid">
-          <article class="project-detail-card">
-            <div class="panel-icon"><i class="fas fa-drafting-compass"></i></div>
-            <h3>Design Practice</h3>
-            <p>Developing engineering concepts through drawing, modeling, and basic design reasoning.</p>
+        <div class="project-capability-grid">
+          <article class="capability-card">
+            <div class="capability-icon"><i class="fas fa-drafting-compass"></i></div>
+            <h3>Mechanical Design</h3>
+            <p>CAD modeling, parametric design, assembly methodology, and design-for-manufacturability principles.</p>
           </article>
-          <article class="project-detail-card">
-            <div class="panel-icon"><i class="fas fa-industry"></i></div>
-            <h3>Manufacturing Study</h3>
-            <p>Investigating production flow, machine capability, and process quality points.</p>
+          <article class="capability-card">
+            <div class="capability-icon"><i class="fas fa-industry"></i></div>
+            <h3>Manufacturing Systems</h3>
+            <p>Process analysis, production flow, workstation design, and quality control methodologies.</p>
           </article>
-          <article class="project-detail-card">
-            <div class="panel-icon"><i class="fas fa-robot"></i></div>
-            <h3>Automation Systems</h3>
-            <p>Learning how automation, sensors, control logic, and monitoring can improve operation.</p>
-          </article>
-          <article class="project-detail-card">
-            <div class="panel-icon"><i class="fas fa-chart-pie"></i></div>
-            <h3>Optimization Thinking</h3>
-            <p>Improving system performance through practical balance between reliability, function, and resource use.</p>
-          </article>
-          <article class="project-detail-card">
-            <div class="panel-icon"><i class="fas fa-plane"></i></div>
-            <h3>Aerospace Exploration</h3>
-            <p>Building a foundation in lightweight structures, vibration, aerodynamics, and advanced mechanical systems.</p>
-          </article>
-          <article class="project-detail-card">
-            <div class="panel-icon"><i class="fas fa-atom"></i></div>
-            <h3>Materials & Energy</h3>
-            <p>Exploring material selection, thermal performance, and sustainable engineering choices for future designs.</p>
+          <article class="capability-card">
+            <div class="capability-icon"><i class="fas fa-robot"></i></div>
+            <h3>Industrial Automation</h3>
+            <p>Sensor integration, PLC logic, control systems, and predictive maintenance concepts.</p>
           </article>
         </div>
       </div>
