@@ -5,51 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | MD Fahim Foysal</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-  <header class="navbar">
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+  <header class="navbar" role="banner">
     <div class="container">
       <a href="index.html" class="logo">
-        <span class="logo-icon"><i class="fas fa-cogs"></i></span>
+        <span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span>
         <span>MD Fahim Foysal</span>
       </a>
-      <div class="hamburger">
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button">
         <span></span><span></span><span></span>
-      </div>
-      <nav>
+      </button>
+      <nav id="navMenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="academics.html">Academics</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="section-padding">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
         <div class="about-grid">
           <div class="about-image">
             <div class="image-frame">
-              <img src="https://i.postimg.cc/QMNkt9nJ/Whats-App-Image-2026-08-05-at-11-46-29-PM.jpg" alt="MD Fahim Foysal">
+              <img src="https://i.postimg.cc/QMNkt9nJ/Whats-App-Image-2026-08-05-at-11-46-29-PM.jpg" alt="MD Fahim Foysal" loading="lazy">
               <div class="image-border"></div>
             </div>
           </div>
           <div class="about-content">
             <h3>Mechanical Engineering Student | Shandong University of Technology</h3>
-            <p>I am a Mechanical Engineering student at SDUT, specializing in Mechanical Design, Manufacturing & Automation at the School of Mechanical Engineering. My academic path is centered on learning design, manufacturing systems, production flow, analysis, and the technical foundations that support future graduate study.</p>
+            <p>Mechanical Engineering student specializing in Design, Manufacturing & Automation. Focused on building rigorous foundations in design methodology, production systems, and technical analysis to support advanced graduate study in aerospace engineering.</p>
             <div class="about-details">
-              <div class="detail-item"><i class="fas fa-calendar-alt"></i><span>B.Sc. 2026 - 2030</span></div>
+              <div class="detail-item"><i class="fas fa-calendar-alt"></i><span>B.Sc. Graduation 2030</span></div>
               <div class="detail-item"><i class="fas fa-language"></i><span>Languages: Bengali, English, Chinese</span></div>
               <div class="detail-item"><i class="fas fa-graduation-cap"></i><span>Total Credits: 145+</span></div>
             </div>
@@ -61,28 +64,27 @@
     <section class="section-padding bg-light">
       <div class="container">
         <div class="section-title-wrap">
-          <h2 class="section-title small-title">Engineering Profile</h2>
-          <p class="section-intro">A learner who combines problem solving, machine understanding, and hands-on systems thinking.</p>
+          <h2 class="section-title small-title"><i class="fas fa-star"></i> Academic & Professional Profile</h2>
         </div>
         <div class="about-story-grid">
           <article class="profile-panel">
-            <div class="panel-icon"><i class="fas fa-brain"></i></div>
-            <h3>Learning Direction</h3>
-            <p>My focus is on building fundamentals in mechanics, design, manufacturing, materials, and technical systems. I want to connect classroom knowledge with real engineering practice and prepare for graduate-level study.</p>
+            <div class="panel-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Academic Background</h3>
+            <p>B.Sc. in Mechanical Design, Manufacturing & Automation. Completing coursework in mechanics, thermodynamics, materials science, CAD, production systems, and quality management. Building a foundation in engineering analysis and technical problem-solving.</p>
           </article>
           <article class="profile-panel">
             <div class="panel-icon"><i class="fas fa-tools"></i></div>
-            <h3>Applied Interests</h3>
-            <p>I am interested in CAD modeling, manufacturing processes, system analysis, simulation, and the practical workflow needed for reliable engineering solutions.</p>
+            <h3>Engineering Focus</h3>
+            <p>Practical expertise in CAD modeling, manufacturing processes, system design, simulation, and process optimization. Interested in connecting theoretical knowledge with real-world engineering applications.</p>
           </article>
           <article class="profile-panel">
-            <div class="panel-icon"><i class="fas fa-language"></i></div>
+            <div class="panel-icon"><i class="fas fa-rocket"></i></div>
             <h3>Future Direction</h3>
-            <p>My long-term aspiration is to pursue a master's degree with an aerospace engineering focus, especially in areas that connect mechanical systems, structures, and advanced manufacturing.</p>
+            <p>Pursuing a master's degree with specialization in aerospace engineering, emphasizing mechanical systems, structures, and advanced manufacturing technologies. Goal is to contribute to aerospace design and manufacturing innovation.</p>
           </article>
         </div>
         <div class="skills-panel">
-          <h3>Skill Development Areas</h3>
+          <h3>Core Competency Areas</h3>
           <div class="skill-list">
             <div class="skill-card"><i class="fas fa-drafting-compass"></i><span>CAD / Drawing</span></div>
             <div class="skill-card"><i class="fas fa-cube"></i><span>Mechanics</span></div>
