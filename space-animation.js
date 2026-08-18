@@ -3,9 +3,13 @@
   
   function startSpaceAnimation() {
     try {
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        return;
+      }
+
       var hero = document.querySelector('.hero-section');
       if (!hero || typeof THREE === 'undefined') {
-        console.log('Space animation: Three.js not loaded or hero section not found');
         return;
       }
 
@@ -40,13 +44,22 @@
   var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
   camera.position.set(0, 0.7, 9);
 
-  scene.add(new THREE.AmbientLight(0x9fc4e8, 0.7));
-  var sun = new THREE.DirectionalLight(0xfff6e8, 1.3);
-  sun.position.set(-6.3, 3.6, 2);
+  scene.add(new THREE.AmbientLight(0x9fc4e8, 0.75));
+  var sun = new THREE.DirectionalLight(0xfff6e8, 1.5);
+  sun.position.set(-8, 5, 3);
   scene.add(sun);
-  var rimLight = new THREE.DirectionalLight(0x67e8f9, 0.35);
-  rimLight.position.set(-10, -5, -4);
+  var rimLight = new THREE.DirectionalLight(0x67e8f9, 0.5);
+  rimLight.position.set(-12, -6, -5);
   scene.add(rimLight);
+  
+  // Add extra point lights for more dynamic 3D effect
+  var pointLight1 = new THREE.PointLight(0x67e8f9, 0.4, 100);
+  pointLight1.position.set(10, 10, 10);
+  scene.add(pointLight1);
+  
+  var pointLight2 = new THREE.PointLight(0xff9a56, 0.3, 80);
+  pointLight2.position.set(-15, -8, 5);
+  scene.add(pointLight2);
 
   function radialGlowTexture() {
     var c = document.createElement('canvas');
@@ -63,24 +76,52 @@
   var glowTex = radialGlowTexture();
 
   function makeStars() {
-    var count = 260;
+    var count = 600;
+    if (window.innerWidth < 768) {
+      count = 220;
+    } else if (window.innerWidth < 1280) {
+      count = 420;
+    }
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) {
+      count = Math.min(count, 320);
+    }
     var pos = new Float32Array(count * 3);
     var size = new Float32Array(count);
     var phase = new Float32Array(count);
+    var color = new Float32Array(count * 3);
+    
+    // Color palette for realistic stars
+    var colors = [
+      [1.0, 1.0, 1.0],     // White
+      [0.9, 0.95, 1.0],    // Bluish white
+      [1.0, 0.95, 0.85],   // Yellowish
+      [0.8, 0.95, 1.0],    // Light blue
+      [1.0, 0.98, 0.9]     // Warm white
+    ];
+    
     for (var i = 0; i < count; i++) {
-      var r = 40 + Math.random() * 55;
+      var r = 30 + Math.random() * 70;
       var theta = Math.random() * Math.PI * 2;
       var phi = Math.acos(2 * Math.random() - 1);
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
-      size[i] = 0.7 + Math.random() * 1.6;
+      
+      // Variable star sizes for depth
+      size[i] = 0.4 + Math.random() * 2.2;
       phase[i] = Math.random();
+      
+      // Assign random colors
+      var col = colors[Math.floor(Math.random() * colors.length)];
+      color[i * 3] = col[0];
+      color[i * 3 + 1] = col[1];
+      color[i * 3 + 2] = col[2];
     }
     var geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
     geo.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1));
+    geo.setAttribute('aColor', new THREE.BufferAttribute(color, 3));
     var mat = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
@@ -89,25 +130,28 @@
       vertexShader: [
         'attribute float aSize;',
         'attribute float aPhase;',
+        'attribute vec3 aColor;',
         'uniform float uTime;',
         'varying float vTw;',
+        'varying vec3 vColor;',
         'void main() {',
-        '  float tw = 0.6 + 0.4 * sin(uTime * 0.5 + aPhase * 6.28318);',
+        '  float tw = 0.5 + 0.5 * sin(uTime * 0.4 + aPhase * 6.28318);',
         '  vTw = tw;',
+        '  vColor = aColor;',
         '  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
-        '  gl_PointSize = aSize * tw * (160.0 / -mv.z);',
+        '  gl_PointSize = (aSize + 0.3) * tw * (180.0 / -mv.z);',
         '  gl_Position = projectionMatrix * mv;',
         '}'
       ].join('\n'),
       fragmentShader: [
-        'uniform vec3 uColor;',
         'varying float vTw;',
+        'varying vec3 vColor;',
         'void main() {',
         '  vec2 uv = gl_PointCoord - 0.5;',
         '  float d = length(uv);',
         '  float a = smoothstep(0.5, 0.02, d) * vTw;',
-        '  if (a < 0.01) discard;',
-        '  gl_FragColor = vec4(uColor, a);',
+        '  if (a < 0.02) discard;',
+        '  gl_FragColor = vec4(vColor, a * 0.9);',
         '}'
       ].join('\n'),
       transparent: true,
@@ -121,39 +165,49 @@
 
   function makeNebula() {
     var c = document.createElement('canvas');
-    c.width = c.height = 512;
+    c.width = c.height = 1024;
     var x = c.getContext('2d');
     x.fillStyle = '#000';
-    x.fillRect(0, 0, 512, 512);
+    x.fillRect(0, 0, 1024, 1024);
     var palette = [
-      [196, 228, 255, 0.05],
-      [94, 234, 212, 0.05],
-      [125, 165, 255, 0.04]
+      [196, 228, 255, 0.08],  // Light blue
+      [94, 234, 212, 0.07],   // Cyan
+      [125, 165, 255, 0.08],  // Blue
+      [138, 126, 222, 0.06],  // Purple
+      [147, 197, 253, 0.07]   // Sky blue
     ];
-    for (var i = 0; i < 26; i++) {
-      var px = 256 + (Math.random() - 0.5) * 360;
-      var py = 256 + (Math.random() - 0.5) * 360;
-      var rad = 30 + Math.random() * 120;
-      var col = palette[i % 3];
+    
+    // Create more nebula clouds for better depth
+    for (var i = 0; i < 45; i++) {
+      var px = 512 + (Math.random() - 0.5) * 600;
+      var py = 512 + (Math.random() - 0.5) * 600;
+      var rad = 40 + Math.random() * 180;
+      var col = palette[i % palette.length];
       var g = x.createRadialGradient(px, py, 0, px, py, rad);
       g.addColorStop(0, 'rgba(' + col[0] + ',' + col[1] + ',' + col[2] + ',' + col[3] + ')');
+      g.addColorStop(0.6, 'rgba(' + col[0] + ',' + col[1] + ',' + col[2] + ',' + (col[3] * 0.3) + ')');
       g.addColorStop(1, 'rgba(0,0,0,0)');
       x.fillStyle = g;
       x.fillRect(px - rad, py - rad, rad * 2, rad * 2);
     }
-    var mat = new THREE.SpriteMaterial({
-      map: new THREE.CanvasTexture(c),
-      transparent: true,
-      opacity: 0.24,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    var s = new THREE.Sprite(mat);
-    s.scale.set(46, 46, 1);
-    s.position.set(0, 0, -14);
-    return s;
+    
+    // Add multiple nebula layers at different positions for depth
+    var materials = [];
+    for (var l = 0; l < 3; l++) {
+      var mat = new THREE.SpriteMaterial({
+        map: new THREE.CanvasTexture(c),
+        transparent: true,
+        opacity: 0.16 + l * 0.06,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      });
+      var s = new THREE.Sprite(mat);
+      s.scale.set(50 + l * 8, 50 + l * 8, 1);
+      s.position.set(l * 2 - 2, l * 1.5 - 1.5, -12 - l * 2);
+      s.rotation.z = (Math.PI * 2 * l) / 3;
+      scene.add(s);
+    }
   }
-  scene.add(makeNebula());
 
   function atmosphereMaterial(colorHex, power) {
     return new THREE.ShaderMaterial({
