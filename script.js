@@ -202,6 +202,10 @@ document.addEventListener('DOMContentLoaded', function() {
       '.achievement-card, .research-card, .project-card, .activity-card, .contact-card, .about-image, .about-content, .value-item, .semester-panel, .course-item'
     );
 
+    if (!revealElements.length) {
+      return;
+    }
+
     const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     revealElements.forEach(el => {
@@ -209,32 +213,42 @@ document.addEventListener('DOMContentLoaded', function() {
       el.setAttribute('data-reveal', 'pending');
     });
     
-    if (prefersReducedMotion) {
-      revealElements.forEach(el => {
-        el.classList.add('active');
-        el.setAttribute('data-reveal', 'active');
-      });
-    } else if ('IntersectionObserver' in window) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            entry.target.setAttribute('data-reveal', 'active');
-            revealObserver.unobserve(entry.target);
-          }
+    const activateReveal = () => {
+      if (prefersReducedMotion) {
+        revealElements.forEach(el => {
+          el.classList.add('active');
+          el.setAttribute('data-reveal', 'active');
         });
-      }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-      });
+        return;
+      }
 
-      revealElements.forEach(el => revealObserver.observe(el));
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              entry.target.setAttribute('data-reveal', 'active');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => {
+          el.classList.add('active');
+          el.setAttribute('data-reveal', 'active');
+        });
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => activateReveal());
     } else {
-      // Fallback for browsers without IntersectionObserver
-      revealElements.forEach(el => {
-        el.classList.add('active');
-        el.setAttribute('data-reveal', 'active');
-      });
+      setTimeout(activateReveal, 150);
     }
   } catch (e) {
     console.warn('Scroll reveal animation error:', e);
