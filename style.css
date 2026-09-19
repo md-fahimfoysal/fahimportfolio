@@ -234,8 +234,8 @@ i[class*="fa"] {
 
 /* ===== Print-ready CV ===== */
 .cv-page {
-  background: #f3f6fb;
-  color: #18212f;
+  background: #f5f7fb;
+  color: #1f2937;
   font-family: 'Inter', sans-serif;
 }
 
@@ -292,7 +292,7 @@ i[class*="fa"] {
 }
 
 .cv-contact a {
-  color: #0f766e;
+  color: #0a6c75;
 }
 
 .cv-section {
@@ -313,7 +313,7 @@ i[class*="fa"] {
 
 .cv-section p,
 .cv-entry {
-  color: #1f2937;
+  color: #2b3a4d;
   font-size: 12px;
   line-height: 1.7;
 }
