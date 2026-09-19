@@ -146,24 +146,108 @@ document.addEventListener('DOMContentLoaded', function() {
       hamburger.setAttribute('aria-label', 'Toggle navigation menu');
       hamburger.setAttribute('aria-expanded', 'false');
       navUl.setAttribute('role', 'navigation');
+
+      function resetMenuStyles() {
+        navUl.style.maxHeight = '';
+        navUl.style.opacity = '';
+        navUl.style.visibility = '';
+        navUl.style.transform = '';
+        navUl.style.padding = '';
+        navUl.style.paddingTop = '';
+        navUl.style.paddingBottom = '';
+        navUl.style.borderColor = '';
+        navUl.style.boxShadow = '';
+        navUl.style.pointerEvents = '';
+        navUl.style.overflow = '';
+      }
+
+      function applyMenuState(isOpen) {
+        navUl.classList.toggle('active', isOpen);
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+
+        if (window.innerWidth <= 1024) {
+          if (isOpen) {
+            navUl.style.maxHeight = `${Math.min(window.innerHeight * 0.62, 520)}px`;
+            navUl.style.opacity = '1';
+            navUl.style.visibility = 'visible';
+            navUl.style.transform = 'translateY(0) scale(1)';
+            navUl.style.padding = '12px';
+            navUl.style.paddingTop = '12px';
+            navUl.style.paddingBottom = '12px';
+            navUl.style.borderColor = 'rgba(110, 247, 255, 0.12)';
+            navUl.style.boxShadow = '0 18px 36px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(110, 247, 255, 0.1)';
+            navUl.style.pointerEvents = 'auto';
+            navUl.style.overflow = 'hidden auto';
+          } else {
+            navUl.style.maxHeight = '0px';
+            navUl.style.opacity = '0';
+            navUl.style.visibility = 'hidden';
+            navUl.style.transform = 'translateY(-10px) scale(0.98)';
+            navUl.style.padding = '0 12px';
+            navUl.style.paddingTop = '0px';
+            navUl.style.paddingBottom = '0px';
+            navUl.style.borderColor = 'transparent';
+            navUl.style.boxShadow = 'none';
+            navUl.style.pointerEvents = 'none';
+            navUl.style.overflow = 'hidden';
+          }
+
+          const menuState = isOpen ? {
+            'max-height': `${Math.min(window.innerHeight * 0.62, 520)}px`,
+            opacity: '1',
+            visibility: 'visible',
+            'pointer-events': 'auto',
+            overflow: 'hidden auto'
+          } : {
+            'max-height': '0px',
+            opacity: '0',
+            visibility: 'hidden',
+            'pointer-events': 'none',
+            overflow: 'hidden'
+          };
+
+          Object.entries(menuState).forEach(([property, value]) => {
+            navUl.style.setProperty(property, value, 'important');
+          });
+        } else {
+          resetMenuStyles();
+        }
+      }
       
       hamburger.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
-        navUl.classList.toggle('active');
-        hamburger.classList.toggle('active');
+        applyMenuState(!isExpanded);
+      });
+
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 1024) {
+          resetMenuStyles();
+          navUl.classList.remove('active');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        } else {
+          applyMenuState(hamburger.getAttribute('aria-expanded') === 'true');
+        }
+      });
+
+      const desktopLayout = window.matchMedia('(min-width: 1025px)');
+      desktopLayout.addEventListener('change', function(event) {
+        if (event.matches) {
+          applyMenuState(false);
+        }
       });
 
       // Close menu when clicking on a link
       document.querySelectorAll('.navbar nav ul li a').forEach(link => {
         link.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
-            hamburger.setAttribute('aria-expanded', 'false');
-            navUl.classList.remove('active');
-            hamburger.classList.remove('active');
+          if (window.innerWidth <= 1024) {
+            applyMenuState(false);
           }
         });
       });
+
+      applyMenuState(false);
     }
   } catch (e) {
     console.warn('Mobile menu initialization error:', e);
@@ -202,11 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
       '.achievement-card, .research-card, .project-card, .activity-card, .contact-card, .about-image, .about-content, .value-item, .semester-panel, .course-item'
     );
 
-    if (!revealElements.length) {
-      return;
-    }
-
-    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (revealElements.length) {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     revealElements.forEach(el => {
       el.classList.add('reveal');
@@ -245,10 +326,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
 
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => activateReveal());
-    } else {
-      setTimeout(activateReveal, 150);
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => activateReveal());
+      } else {
+        setTimeout(activateReveal, 150);
+      }
     }
   } catch (e) {
     console.warn('Scroll reveal animation error:', e);
@@ -354,16 +436,16 @@ document.addEventListener('DOMContentLoaded', function() {
           const subject = `Portfolio Contact: ${topic || 'General Contact'}`;
           const body = `Name: ${name}\nEmail: ${email}\nTopic: ${topic || 'General Contact'}\n\nMessage:\n${message}`;
 
-          const mailtoLink = `mailto:mdfahim.foysal.mail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          const gmailComposeLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('mdfahim.foysal.mail@gmail.com')}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-          formStatus.textContent = 'Preparing your email client...';
+          formStatus.textContent = 'Opening Gmail with your message...';
           formStatus.className = 'form-status';
           formStatus.style.display = 'block';
 
-          window.location.href = mailtoLink;
+          window.open(gmailComposeLink, '_blank', 'noopener');
 
           setTimeout(() => {
-            formStatus.textContent = 'Your email draft is ready. Please send it to complete the message.';
+            formStatus.textContent = 'Gmail is ready with your message. Review it and click Send.';
             formStatus.className = 'form-status success';
             formStatus.style.display = 'block';
             contactForm.reset();
