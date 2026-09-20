@@ -162,6 +162,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       function applyMenuState(isOpen) {
+        const wasOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        const activeLink = isOpen && !wasOpen ? navUl.querySelector('a.active') : null;
+        const activeItem = activeLink ? activeLink.closest('li') : null;
         navUl.classList.toggle('active', isOpen);
         hamburger.classList.toggle('active', isOpen);
         hamburger.setAttribute('aria-expanded', String(isOpen));
@@ -212,6 +215,23 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         } else {
           resetMenuStyles();
+        }
+
+        if (activeItem) {
+          requestAnimationFrame(() => {
+            if (hamburger.getAttribute('aria-expanded') !== 'true') return;
+
+            const itemTop = activeItem.offsetTop;
+            const itemBottom = itemTop + activeItem.offsetHeight;
+            const visibleTop = navUl.scrollTop;
+            const visibleBottom = visibleTop + navUl.clientHeight;
+
+            if (itemTop < visibleTop) {
+              navUl.scrollTop = itemTop;
+            } else if (itemBottom > visibleBottom) {
+              navUl.scrollTop = itemBottom - navUl.clientHeight;
+            }
+          });
         }
       }
       
