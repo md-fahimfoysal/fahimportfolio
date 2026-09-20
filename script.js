@@ -221,16 +221,10 @@ document.addEventListener('DOMContentLoaded', function() {
           requestAnimationFrame(() => {
             if (hamburger.getAttribute('aria-expanded') !== 'true') return;
 
-            const itemTop = activeItem.offsetTop;
-            const itemBottom = itemTop + activeItem.offsetHeight;
-            const visibleTop = navUl.scrollTop;
-            const visibleBottom = visibleTop + navUl.clientHeight;
-
-            if (itemTop < visibleTop) {
-              navUl.scrollTop = itemTop;
-            } else if (itemBottom > visibleBottom) {
-              navUl.scrollTop = itemBottom - navUl.clientHeight;
-            }
+            activeItem.scrollIntoView({
+              behavior: 'auto',
+              block: 'nearest'
+            });
           });
         }
       }
