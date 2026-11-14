@@ -1,0 +1,567 @@
+document.addEventListener('DOMContentLoaded', function() {
+  'use strict';
+  
+  try {
+    // Set current year in footer
+    const currentYear = document.getElementById('current-year');
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
+
+    const cvDate = new Date().toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    const cvDateHeader = document.getElementById('cv-date');
+    if (cvDateHeader) {
+      cvDateHeader.textContent = cvDate;
+    }
+
+    // ===== Semester Tabs (Accessible) =====
+    const semesterTabs = document.querySelectorAll('.semester-tab');
+    const semesterPanels = document.querySelectorAll('.semester-panel');
+
+    function activateSemester(semNum) {
+      try {
+        semesterTabs.forEach(t => {
+          const isActive = t.getAttribute('data-sem') === String(semNum);
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive);
+          t.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+
+        semesterPanels.forEach(panel => {
+          const isActive = panel.getAttribute('data-sem') === String(semNum);
+          panel.classList.toggle('active', isActive);
+          panel.setAttribute('aria-hidden', !isActive);
+          panel.style.display = isActive ? 'block' : 'none';
+        });
+      } catch (e) {
+        console.warn('Semester activation error:', e);
+      }
+    }
+
+    semesterTabs.forEach(tab => {
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-selected', tab.classList.contains('active'));
+      
+      // Click handler
+      tab.addEventListener('click', function() {
+        const semNum = this.getAttribute('data-sem');
+        if (semNum) activateSemester(semNum);
+      });
+      
+      // Keyboard support (arrow keys)
+      tab.addEventListener('keydown', function(e) {
+        const tabs = Array.from(semesterTabs);
+        const currentIndex = tabs.indexOf(this);
+        let nextTab = null;
+        
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          nextTab = tabs[currentIndex + 1] || tabs[0];
+          e.preventDefault();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          nextTab = tabs[currentIndex - 1] || tabs[tabs.length - 1];
+          e.preventDefault();
+        }
+        
+        if (nextTab) {
+          nextTab.focus();
+          const semNum = nextTab.getAttribute('data-sem');
+          if (semNum) activateSemester(semNum);
+        }
+      });
+    });
+
+    if (semesterPanels.length > 0) {
+      semesterPanels.forEach(panel => {
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-hidden', !panel.classList.contains('active'));
+      });
+      
+      const firstPanel = semesterPanels[0];
+      const initialSem = firstPanel.getAttribute('data-sem') || '1';
+      activateSemester(initialSem);
+    }
+  } catch (e) {
+    console.warn('Semester tabs initialization error:', e);
+  }
+
+  // ===== Pages & Navigation (Accessible) =====
+  try {
+    const navLinks = document.querySelectorAll('.navbar nav ul li a');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  } catch (e) {
+    console.warn('Navigation initialization error:', e);
+  }
+
+  // ===== Smooth Scroll (Accessible) =====
+  try {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        try {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offset = 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            target.focus();
+          }
+          
+          const navUl = document.querySelector('.navbar nav ul');
+          const hamburger = document.querySelector('.hamburger');
+          if (navUl && navUl.classList.contains('active')) {
+            navUl.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+          }
+        } catch (err) {
+          console.warn('Smooth scroll error:', err);
+        }
+      });
+    });
+  } catch (e) {
+    console.warn('Smooth scroll initialization error:', e);
+  }
+
+  // ===== Mobile Menu (Accessible) =====
+  try {
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('.navbar nav ul');
+    
+    if (hamburger && navUl) {
+      hamburger.setAttribute('aria-label', window.portfolioTranslate('Toggle navigation menu'));
+      hamburger.setAttribute('aria-expanded', 'false');
+      navUl.setAttribute('role', 'navigation');
+
+      function resetMenuStyles() {
+        navUl.style.maxHeight = '';
+        navUl.style.opacity = '';
+        navUl.style.visibility = '';
+        navUl.style.transform = '';
+        navUl.style.padding = '';
+        navUl.style.paddingTop = '';
+        navUl.style.paddingBottom = '';
+        navUl.style.borderColor = '';
+        navUl.style.boxShadow = '';
+        navUl.style.pointerEvents = '';
+        navUl.style.overflow = '';
+      }
+
+      function applyMenuState(isOpen) {
+        const wasOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        const activeLink = isOpen && !wasOpen ? navUl.querySelector('a.active') : null;
+        const activeItem = activeLink ? activeLink.closest('li') : null;
+        navUl.classList.toggle('active', isOpen);
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+
+        if (window.innerWidth <= 1024) {
+          if (isOpen) {
+            navUl.style.maxHeight = `${Math.min(window.innerHeight * 0.62, 520)}px`;
+            navUl.style.opacity = '1';
+            navUl.style.visibility = 'visible';
+            navUl.style.transform = 'translateY(0) scale(1)';
+            navUl.style.padding = '12px';
+            navUl.style.paddingTop = '12px';
+            navUl.style.paddingBottom = '12px';
+            navUl.style.borderColor = 'rgba(110, 247, 255, 0.12)';
+            navUl.style.boxShadow = '0 18px 36px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(110, 247, 255, 0.1)';
+            navUl.style.pointerEvents = 'auto';
+            navUl.style.overflow = 'hidden auto';
+          } else {
+            navUl.style.maxHeight = '0px';
+            navUl.style.opacity = '0';
+            navUl.style.visibility = 'hidden';
+            navUl.style.transform = 'translateY(-10px) scale(0.98)';
+            navUl.style.padding = '0 12px';
+            navUl.style.paddingTop = '0px';
+            navUl.style.paddingBottom = '0px';
+            navUl.style.borderColor = 'transparent';
+            navUl.style.boxShadow = 'none';
+            navUl.style.pointerEvents = 'none';
+            navUl.style.overflow = 'hidden';
+          }
+
+          const menuState = isOpen ? {
+            'max-height': `${Math.min(window.innerHeight * 0.62, 520)}px`,
+            opacity: '1',
+            visibility: 'visible',
+            'pointer-events': 'auto',
+            overflow: 'hidden auto'
+          } : {
+            'max-height': '0px',
+            opacity: '0',
+            visibility: 'hidden',
+            'pointer-events': 'none',
+            overflow: 'hidden'
+          };
+
+          Object.entries(menuState).forEach(([property, value]) => {
+            navUl.style.setProperty(property, value, 'important');
+          });
+        } else {
+          resetMenuStyles();
+        }
+
+        if (activeItem) {
+          requestAnimationFrame(() => {
+            if (hamburger.getAttribute('aria-expanded') !== 'true') return;
+
+            activeItem.scrollIntoView({
+              behavior: 'auto',
+              block: 'nearest'
+            });
+          });
+        }
+      }
+      
+      hamburger.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        applyMenuState(!isExpanded);
+      });
+
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 1024) {
+          resetMenuStyles();
+          navUl.classList.remove('active');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        } else {
+          applyMenuState(hamburger.getAttribute('aria-expanded') === 'true');
+        }
+      });
+
+      const desktopLayout = window.matchMedia('(min-width: 1025px)');
+      desktopLayout.addEventListener('change', function(event) {
+        if (event.matches) {
+          applyMenuState(false);
+        }
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.navbar nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 1024) {
+            applyMenuState(false);
+          }
+        });
+      });
+
+      applyMenuState(false);
+    }
+  } catch (e) {
+    console.warn('Mobile menu initialization error:', e);
+  }
+
+  // ===== Navbar Scroll Effect (Throttled & Optimized) =====
+  try {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      let scrollTimeout;
+      let lastScrollY = 0;
+      
+      window.addEventListener('scroll', function() {
+        const currentScrollY = window.scrollY;
+        
+        if (Math.abs(currentScrollY - lastScrollY) > 50) {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            if (currentScrollY > 50) {
+              navbar.classList.add('scrolled');
+            } else {
+              navbar.classList.remove('scrolled');
+            }
+            lastScrollY = currentScrollY;
+          }, 100);
+        }
+      }, { passive: true });
+    }
+  } catch (e) {
+    console.warn('Navbar scroll effect error:', e);
+  }
+
+  // ===== Scroll Reveal Animation (Performance Optimized) =====
+  try {
+    const revealElements = document.querySelectorAll(
+      '.achievement-card, .research-card, .project-card, .activity-card, .contact-card, .about-image, .about-content, .value-item, .semester-panel, .course-item'
+    );
+
+    if (revealElements.length) {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    revealElements.forEach(el => {
+      el.classList.add('reveal');
+      el.setAttribute('data-reveal', 'pending');
+    });
+    
+    const activateReveal = () => {
+      if (prefersReducedMotion) {
+        revealElements.forEach(el => {
+          el.classList.add('active');
+          el.setAttribute('data-reveal', 'active');
+        });
+        return;
+      }
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              entry.target.setAttribute('data-reveal', 'active');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => {
+          el.classList.add('active');
+          el.setAttribute('data-reveal', 'active');
+        });
+      }
+    };
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => activateReveal());
+      } else {
+        setTimeout(activateReveal, 150);
+      }
+    }
+  } catch (e) {
+    console.warn('Scroll reveal animation error:', e);
+  }
+
+  // ===== Project Filtering (Optimized & Accessible) =====
+  try {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (filterBtns.length > 0 && projectCards.length > 0) {
+      // Initialize all project cards as visible on page load
+      projectCards.forEach(card => {
+        card.classList.add('visible');
+        card.setAttribute('data-filtered', 'visible');
+      });
+
+      filterBtns.forEach((btn, index) => {
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+
+        btn.addEventListener('click', function() {
+          try {
+            filterBtns.forEach(b => {
+              b.classList.remove('active');
+              b.setAttribute('aria-pressed', 'false');
+            });
+            this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Batch DOM updates to prevent layout thrashing
+            requestAnimationFrame(() => {
+              projectCards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                const matches = filter === 'all' || category.includes(filter);
+                
+                if (matches) {
+                  card.style.display = 'block';
+                  card.setAttribute('data-filtered', 'visible');
+                  // Trigger reflow only once
+                  void card.offsetHeight;
+                  card.classList.add('visible');
+                } else {
+                  card.classList.remove('visible');
+                  card.setAttribute('data-filtered', 'hidden');
+                  // Use CSS transition to hide
+                  setTimeout(() => {
+                    if (!card.classList.contains('visible')) {
+                      card.style.display = 'none';
+                    }
+                  }, 300);
+                }
+              });
+            });
+          } catch (err) {
+            console.warn('Filter button click error:', err);
+          }
+        });
+      });
+    }
+  } catch (e) {
+    console.warn('Project filtering initialization error:', e);
+  }
+
+  // ===== Contact Form Handling (Safe & Accessible) =====
+  try {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm && formStatus) {
+      contactForm.setAttribute('novalidate', 'true');
+      formStatus.setAttribute('role', 'alert');
+      formStatus.setAttribute('aria-live', 'polite');
+
+      contactForm.addEventListener('submit', function(event) {
+        try {
+          event.preventDefault();
+
+          const formData = new FormData(contactForm);
+          const name = String(formData.get('name') || '').trim();
+          const email = String(formData.get('email') || '').trim();
+          const topic = String(formData.get('topic') || 'General Contact').trim();
+          const message = String(formData.get('message') || '').trim();
+
+          if (!name || !email || !message) {
+            formStatus.textContent = window.portfolioTranslate('Please fill out your name, email, and message.');
+            formStatus.className = 'form-status error';
+            formStatus.style.display = 'block';
+            return;
+          }
+
+          const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+          if (!emailIsValid) {
+            formStatus.textContent = window.portfolioTranslate('Please enter a valid email address.');
+            formStatus.className = 'form-status error';
+            formStatus.style.display = 'block';
+            return;
+          }
+
+          const subject = `Portfolio Contact: ${topic || 'General Contact'}`;
+          const body = `Name: ${name}\nEmail: ${email}\nTopic: ${topic || 'General Contact'}\n\nMessage:\n${message}`;
+
+          const gmailComposeLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('mdfahim.foysal.mail@gmail.com')}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+          formStatus.textContent = window.portfolioTranslate('Opening Gmail with your message...');
+          formStatus.className = 'form-status';
+          formStatus.style.display = 'block';
+
+          const gmailWindow = window.open(gmailComposeLink, '_blank');
+
+          if (gmailWindow) {
+            gmailWindow.opener = null;
+            formStatus.textContent = window.portfolioTranslate('A Gmail draft was opened. Review it and click Send; your form details are still here if you need to retry.');
+            formStatus.className = 'form-status success';
+          } else {
+            formStatus.textContent = window.portfolioTranslate('Your browser blocked the Gmail window. Your message is still here; allow pop-ups or use the email address listed on this page.');
+            formStatus.className = 'form-status error';
+          }
+          formStatus.style.display = 'block';
+        } catch (err) {
+          console.warn('Form submission error:', err);
+          formStatus.textContent = window.portfolioTranslate('An error occurred. Please try again.');
+          formStatus.className = 'form-status error';
+          formStatus.style.display = 'block';
+        }
+      });
+
+      // Add input validation feedback
+      const inputs = contactForm.querySelectorAll('input, textarea, select');
+      inputs.forEach(input => {
+        input.addEventListener('invalid', function(e) {
+          e.preventDefault();
+          formStatus.textContent = window.portfolioTranslate('Please fill in all required fields correctly.');
+          formStatus.className = 'form-status error';
+          formStatus.style.display = 'block';
+        });
+      });
+    }
+  } catch (e) {
+    console.warn('Contact form initialization error:', e);
+  }
+
+  // ===== Download CV Button =====
+  try {
+    const downloadBtn = document.getElementById('downloadCV');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', function(e) {
+        try {
+          e.preventDefault();
+          window.open('cv.html?print=1', '_blank');
+        } catch (err) {
+          console.warn('Download CV error:', err);
+        }
+      });
+    }
+
+    if (document.body.classList.contains('cv-page') && window.location.search.includes('print=1')) {
+      window.setTimeout(() => {
+        try {
+          window.print();
+        } catch (err) {
+          console.warn('Print error:', err);
+        }
+      }, 400);
+    }
+  } catch (e) {
+    console.warn('CV button initialization error:', e);
+  }
+
+  // ===== Active Nav Link on Scroll =====
+  try {
+    const sections = document.querySelectorAll('section[id]');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    window.addEventListener('scroll', function() {
+      let current = '';
+      const scrollPos = window.scrollY + 100;
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      document.querySelectorAll('.navbar nav ul li a').forEach(link => {
+        const href = link.getAttribute('href');
+        const pageFile = href && href.includes('.html') ? href : null;
+
+        link.style.opacity = '0.85';
+        link.style.background = 'transparent';
+
+        if (pageFile === currentPage) {
+          link.style.opacity = '1';
+          link.style.background = 'rgba(255, 255, 255, 0.15)';
+        }
+
+        if (href === '#' + current) {
+          link.style.opacity = '1';
+          link.style.background = 'rgba(255, 255, 255, 0.15)';
+        }
+      });
+    }, { passive: true });
+  } catch (e) {
+    console.warn('Nav scroll tracking error:', e);
+  }
+
+  // ===== Console Message =====
+  if (console && console.log) {
+    console.log('%c MD Fahim Foysal Portfolio %c Ready ',
+      'background: #1a237e; color: white; padding: 8px 12px; border-radius: 4px 0 0 4px; font-weight: bold;',
+      'background: #4caf50; color: white; padding: 8px 12px; border-radius: 0 4px 4px 0;'
+    );
+  }
+});

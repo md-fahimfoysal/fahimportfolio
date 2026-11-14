@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | MD Fahim Foysal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+  <a href="#main" class="skip-to-main">Skip to main content</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span><span>MD Fahim Foysal</span></a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" type="button"><span></span><span></span><span></span></button>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="contact" class="section-padding contact-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
+          <p class="section-intro">I welcome conversations about engineering collaboration, research interests, internships, and academic opportunities in mechanical engineering and advanced systems.</p>
+        </div>
+        <div class="contact-grid">
+          <aside class="contact-panel contact-info-panel">
+            <div class="contact-panel-header">
+              <span class="panel-kicker">Professional Contact</span>
+              <h3>Connect With Me</h3>
+            </div>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-icon-large"><i class="fas fa-envelope"></i></span>
+                <div>
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:mdfahim.foysal.mail@gmail.com">mdfahim.foysal.mail@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon-large"><i class="fab fa-linkedin"></i></span>
+                <div>
+                  <span class="contact-label">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/md-fahim-foysal-5b8a673b3" target="_blank">linkedin.com/in/md-fahim-foysal-5b8a673b3</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon-large"><i class="fab fa-facebook"></i></span>
+                <div>
+                  <span class="contact-label">Facebook</span>
+                  <a href="https://www.facebook.com/mdfahim.foysal.186" target="_blank">facebook.com/mdfahim.foysal.186</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon-large"><i class="fas fa-map-marker-alt"></i></span>
+                <div>
+                  <span class="contact-label">Location</span>
+                  <span class="contact-text location-line"><img class="location-flag" src="https://flagcdn.com/w40/cn.png" alt="China flag" loading="lazy">Present: Zibo, Shandong, China</span>
+                  <span class="contact-text location-line"><img class="location-flag" src="https://flagcdn.com/w40/bd.png" alt="Bangladesh flag" loading="lazy">Permanent: Khulna, Bagerhat, Bangladesh</span>
+                </div>
+              </div>
+            </div>
+            <div class="mini-status">
+              <span><i class="fas fa-circle"></i> Available for collaboration</span>
+            </div>
+          </aside>
+          <section class="contact-panel contact-form-panel">
+            <div class="contact-panel-header">
+              <span class="panel-kicker">Send a Message</span>
+              <h3>Let’s Talk</h3>
+            </div>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Your Name <span>*</span></label>
+                <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option value="">Choose a topic</option>
+                  <option value="Research Collaboration">Research Collaboration</option>
+                  <option value="Internship / Project">Internship / Project</option>
+                  <option value="Academic Discussion">Academic Discussion</option>
+                  <option value="General Contact">General Contact</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message <span>*</span></label>
+                <textarea id="message" name="message" rows="6" placeholder="Write your message" required></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                <span class="form-status" id="formStatus" aria-live="polite"></span>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title small-title"><i class="fas fa-envelope-open"></i> Connect And Collaborate</h2>
+          <p class="section-intro">I am open to engineering discussions, research opportunities, internship inquiries, student collaboration, and technical exchange related to design, manufacturing, and automation.</p>
+        </div>
+        <div class="contact-detail-grid">
+          <article class="contact-detail-card">
+            <div class="panel-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <h3>Preferred Communication</h3>
+            <p>I usually reply through email for academic, research, and career-related communication. Formal introductions and project scope are welcome.</p>
+          </article>
+          <article class="contact-detail-card">
+            <div class="panel-icon"><i class="fas fa-network-wired"></i></div>
+            <h3>Professional Channels</h3>
+            <p>Connect through LinkedIn, Facebook, and direct email for technical updates and profile details.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info"><h3>MD Fahim Foysal</h3><p>Mechanical Engineering Student | Shandong University of Technology</p></div>
+        <div class="footer-social"><a href="https://www.linkedin.com/in/md-fahim-foysal-5b8a673b3" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/mdfahim.foysal.186" target="_blank"><i class="fab fa-facebook"></i></a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; <span id="current-year"></span> MD Fahim Foysal. All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="translations-core.js?v=2"></script>
+  <script src="translations-remaining-pages.js?v=2"></script>
+  <script src="i18n.js?v=7"></script>
+  <script src="script.js?v=3"></script>
+</body>
+</html>
