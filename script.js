@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
       currentYear.textContent = new Date().getFullYear();
     }
 
-    const cvDate = new Date().toLocaleDateString('en-GB', {
+    const cvDateLocale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en-GB';
+    const cvDate = new Date().toLocaleDateString(cvDateLocale, {
       day: 'numeric',
       month: 'long',
       year: 'numeric'

@@ -5,10 +5,7 @@
 
   const languages = {
     en: { label: 'English', locale: 'en', direction: 'ltr' },
-    bn: { label: 'বাংলা', locale: 'bn', direction: 'ltr' },
-    zh: { label: '中文', locale: 'zh-CN', direction: 'ltr' },
-    ar: { label: 'العربية', locale: 'ar', direction: 'rtl' },
-    de: { label: 'Deutsch', locale: 'de', direction: 'ltr' }
+    zh: { label: '中文', locale: 'zh-CN', direction: 'ltr' }
   };
 
   Object.assign(translations, window.portfolioExtraTranslations || {});
@@ -32,19 +29,38 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    const selector = document.createElement('select');
+    const selector = document.querySelector('.language-switcher') || document.createElement('select');
     selector.className = 'language-switcher';
     selector.setAttribute('aria-label', 'Language');
     selector.title = 'Language';
 
+    if (!selector.parentElement) {
+      let navActions = document.querySelector('.nav-actions');
+      const hamburger = document.querySelector('.navbar .hamburger');
+      if (!navActions && hamburger) {
+        navActions = document.createElement('div');
+        navActions.className = 'nav-actions';
+        const navContainer = hamburger.parentElement;
+        const nav = navContainer.querySelector(':scope > nav');
+        navContainer.insertBefore(navActions, nav ? nav.nextSibling : hamburger);
+        navActions.appendChild(hamburger);
+      }
+
+      if (navActions) {
+        navActions.insertBefore(selector, navActions.firstChild);
+      } else {
+        selector.classList.add('language-switcher--floating');
+        document.body.appendChild(selector);
+      }
+    }
+
+    selector.innerHTML = '';
     Object.keys(languages).forEach(function (code) {
       const option = document.createElement('option');
       option.value = code;
       option.textContent = languages[code].label;
       selector.appendChild(option);
     });
-
-    document.body.appendChild(selector);
 
     const textNodes = [];
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);

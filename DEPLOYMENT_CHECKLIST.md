@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 Files Ready for Upload (13 HTML Files)
+## 📋 Files Ready for Upload (13 site pages plus verification page)
 
 ✅ **Core Pages (All Working)**
 - [x] `index.html` - Homepage with space animation
@@ -36,6 +36,11 @@
 ✅ **JavaScript Files**
 - [x] `script.js` - Application logic (60+ try-catch blocks)
 - [x] `space-animation.js` - Three.js animations (comprehensive error handling)
+- [x] `i18n.js` - English/Chinese language switching
+- [x] `translations-core.js`
+- [x] `translations-academics.js`
+- [x] `translations-cv-achievements.js`
+- [x] `translations-remaining-pages.js`
 
 ✅ **External CDN Resources** (All verified with HTTPS integrity hashes)
 - [x] Google Fonts (Inter, Noto Sans Bengali, Playfair Display)
@@ -137,12 +142,16 @@ Your website works on **ANY** web hosting platform:
 ### **Method 2: FTP Upload (Traditional Host)**
 1. Connect to your hosting via FTP client
 2. Upload **ONLY THESE FILES** to public_html/:
-   - All 13 `.html` files
+   - All 14 `.html` files (13 site pages plus the verification page)
    - `style.css`
    - `script.js`
    - `space-animation.js`
+   - `i18n.js`
+   - `translations-core.js`
+   - `translations-academics.js`
+   - `translations-cv-achievements.js`
+   - `translations-remaining-pages.js`
    - `sitemap.xml`
-   - `google2c7a16391409bc3c.html`
 3. **Do NOT upload:**
    - PowerShell scripts
    - Markdown documentation files
@@ -177,8 +186,13 @@ fahimportfolio-main/
 ├── style.css                                   (UPLOAD)
 ├── script.js                                   (UPLOAD)
 ├── space-animation.js                          (UPLOAD)
+├── i18n.js                                      (UPLOAD)
+├── translations-core.js                         (UPLOAD)
+├── translations-academics.js                    (UPLOAD)
+├── translations-cv-achievements.js              (UPLOAD)
+├── translations-remaining-pages.js             (UPLOAD)
 ├── sitemap.xml                                 (UPLOAD)
-└── (All other files optional - for reference only)
+└── google2c7a16391409bc3c.html                 (UPLOAD)
 ```
 
 **Total Size:** ~200 KB (Very fast to upload)

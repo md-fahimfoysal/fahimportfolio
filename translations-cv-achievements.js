@@ -23,7 +23,7 @@
     },
     'Shandong University of Technology': {
       bn: 'Shandong University of Technology',
-      zh: 'Shandong University of Technology',
+      zh: '山东理工大学',
       ar: 'Shandong University of Technology',
       de: 'Shandong University of Technology'
     },
@@ -33,12 +33,12 @@
       ar: 'الإقامة الحالية: زيبو، شاندونغ، الصين',
       de: 'Derzeitiger Wohnort: Zibo, Shandong, China'
     },
-    'LinkedIn': { bn: 'LinkedIn', zh: 'LinkedIn', ar: 'LinkedIn', de: 'LinkedIn' },
+    'LinkedIn': { bn: 'LinkedIn', zh: '领英', ar: 'LinkedIn', de: 'LinkedIn' },
     'Prepared:': { bn: 'প্রস্তুতির তারিখ:', zh: '编制日期：', ar: 'تاريخ الإعداد:', de: 'Erstellt am:' },
     'Profile': { bn: 'প্রোফাইল', zh: '个人简介', ar: 'الملف الشخصي', de: 'Profil' },
     'Mechanical engineering student at Shandong University of Technology with a strong academic foundation in mechanical design, manufacturing systems, automation, and engineering analysis. Interested in applying technical knowledge to practical design and manufacturing challenges while preparing for graduate study in aerospace and advanced engineering systems.': {
       bn: 'Shandong University of Technology-এর মেকানিক্যাল ইঞ্জিনিয়ারিংয়ের শিক্ষার্থী হিসেবে মেকানিক্যাল ডিজাইন, উৎপাদন ব্যবস্থা, অটোমেশন ও প্রকৌশল বিশ্লেষণে আমার শক্ত একাডেমিক ভিত্তি রয়েছে। অ্যারোস্পেস ও উন্নত প্রকৌশল ব্যবস্থায় স্নাতকোত্তর পড়াশোনার প্রস্তুতির পাশাপাশি বাস্তব ডিজাইন ও উৎপাদনসংক্রান্ত চ্যালেঞ্জে প্রযুক্তিগত জ্ঞান প্রয়োগে আগ্রহী।',
-      zh: '我就读于Shandong University of Technology，具备机械设计、制造系统、自动化和工程分析方面的扎实学术基础。我希望将技术知识应用于实际设计和制造挑战，同时为航空航天及先进工程系统方向的研究生学习做准备。',
+      zh: '我就读于山东理工大学，具备机械设计、制造系统、自动化和工程分析方面的扎实学术基础。我希望将技术知识应用于实际设计和制造挑战，同时为航空航天及先进工程系统方向的研究生学习做准备。',
       ar: 'أنا طالب في الهندسة الميكانيكية بجامعة Shandong University of Technology، ولدي أساس أكاديمي قوي في التصميم الميكانيكي وأنظمة التصنيع والأتمتة والتحليل الهندسي. أهتم بتطبيق المعرفة التقنية على تحديات التصميم والتصنيع العملية، مع الاستعداد للدراسات العليا في الطيران والفضاء والأنظمة الهندسية المتقدمة.',
       de: 'Als Maschinenbaustudent an der Shandong University of Technology verfüge ich über eine solide akademische Grundlage in Konstruktion, Fertigungssystemen, Automatisierung und technischer Analyse. Ich möchte technisches Wissen auf praktische Herausforderungen in Konstruktion und Fertigung anwenden und bereite mich zugleich auf ein weiterführendes Studium in Luft- und Raumfahrt sowie fortgeschrittenen technischen Systemen vor.'
     },
@@ -52,7 +52,7 @@
     '2026 - 2030': { bn: '২০২৬–২০৩০', zh: '2026–2030年', ar: '٢٠٢٦–٢٠٣٠', de: '2026–2030' },
     'Shandong University of Technology, School of Mechanical Engineering, Zibo, China': {
       bn: 'Shandong University of Technology, মেকানিক্যাল ইঞ্জিনিয়ারিং বিভাগ, জিবো, চীন',
-      zh: 'Shandong University of Technology，机械工程学院，中国淄博',
+      zh: '山东理工大学机械工程学院，中国淄博',
       ar: 'Shandong University of Technology، كلية الهندسة الميكانيكية، زيبو، الصين',
       de: 'Shandong University of Technology, Fakultät für Maschinenbau, Zibo, China'
     },
@@ -66,7 +66,7 @@
     '2026': { bn: '২০২৬', zh: '2026年', ar: '٢٠٢٦', de: '2026' },
     'Bangladesh Nou Bahini School and College | GPA 5.00 out of 5.00': {
       bn: 'Bangladesh Nou Bahini School and College | জিপিএ ৫.০০-এর মধ্যে ৫.০০',
-      zh: 'Bangladesh Nou Bahini School and College | 平均绩点：5.00分（满分5.00）',
+      zh: '孟加拉国海军学校暨学院 | 平均绩点：5.00分（满分5.00）',
       ar: 'Bangladesh Nou Bahini School and College | المعدل: 5.00 من 5.00',
       de: 'Bangladesh Nou Bahini School and College | GPA: 5,00 von 5,00'
     },
@@ -79,7 +79,7 @@
     '2022': { bn: '২০২২', zh: '2022年', ar: '٢٠٢٢', de: '2022' },
     'Railway Public High School | GPA 5.00 out of 5.00': {
       bn: 'Railway Public High School | জিপিএ ৫.০০-এর মধ্যে ৫.০০',
-      zh: 'Railway Public High School | 平均绩点：5.00分（满分5.00）',
+      zh: '铁路公立高中 | 平均绩点：5.00分（满分5.00）',
       ar: 'Railway Public High School | المعدل: 5.00 من 5.00',
       de: 'Railway Public High School | GPA: 5,00 von 5,00'
     },
@@ -107,7 +107,7 @@
     'Certificates': { bn: 'সনদপত্র', zh: '证书', ar: 'الشهادات', de: 'Zertifikate' },
     'Duolingo English Test - Score 115': {
       bn: 'Duolingo English Test - স্কোর ১১৫',
-      zh: 'Duolingo English Test - 分数115',
+      zh: '多邻国英语测试 - 分数115',
       ar: 'Duolingo English Test - النتيجة 115',
       de: 'Duolingo English Test – Ergebnis 115'
     },
@@ -126,11 +126,11 @@
       de: 'Als engagierter B.Eng.-Student der Fachrichtung Konstruktion, Fertigung und Automatisierung möchte ich praktische Erfahrungen in Konstruktion, Fertigungsprozessen, Industriesystemen und Anwendungen der Luft- und Raumfahrttechnik vertiefen.'
     },
     'Languages': { bn: 'ভাষাসমূহ', zh: '语言', ar: 'اللغات', de: 'Sprachen' },
-    'Bengali | English | Chinese': {
-      bn: 'বাংলা | ইংরেজি | চীনা',
-      zh: '孟加拉语 | 英语 | 中文',
-      ar: 'البنغالية | الإنجليزية | الصينية',
-      de: 'Bengalisch | Englisch | Chinesisch'
+    'English | Chinese': {
+      bn: 'ইংরেজি | চীনা',
+      zh: '英语 | 中文',
+      ar: 'الإنجليزية | الصينية',
+      de: 'Englisch | Chinesisch'
     },
     'Achievements & Academic Record': {
       bn: 'অর্জন ও একাডেমিক রেকর্ড',
@@ -155,13 +155,13 @@
     'HSC - Science': { bn: 'এইচএসসি - বিজ্ঞান', zh: 'HSC - 理科', ar: 'HSC - العلوم', de: 'HSC – Naturwissenschaften' },
     'Railway Public High School | GPA 5.00 / 5.00': {
       bn: 'Railway Public High School | জিপিএ ৫.০০ / ৫.০০',
-      zh: 'Railway Public High School | 平均绩点 5.00 / 5.00',
+      zh: '铁路公立高中 | 平均绩点 5.00 / 5.00',
       ar: 'Railway Public High School | المعدل 5.00 / 5.00',
       de: 'Railway Public High School | GPA 5,00 / 5,00'
     },
     'Bangladesh Nou Bahini School and College | GPA 5.00 / 5.00': {
       bn: 'Bangladesh Nou Bahini School and College | জিপিএ ৫.০০ / ৫.০০',
-      zh: 'Bangladesh Nou Bahini School and College | 平均绩点 5.00 / 5.00',
+      zh: '孟加拉国海军学校暨学院 | 平均绩点 5.00 / 5.00',
       ar: 'Bangladesh Nou Bahini School and College | المعدل 5.00 / 5.00',
       de: 'Bangladesh Nou Bahini School and College | GPA 5,00 / 5,00'
     },
@@ -173,7 +173,7 @@
     },
     'Shandong University of Technology | Mechanical Design, Manufacturing & Automation': {
       bn: 'Shandong University of Technology | মেকানিক্যাল ডিজাইন, ম্যানুফ্যাকচারিং ও অটোমেশন',
-      zh: 'Shandong University of Technology | 机械设计、制造与自动化',
+      zh: '山东理工大学 | 机械设计、制造与自动化',
       ar: 'Shandong University of Technology | التصميم الميكانيكي والتصنيع والأتمتة',
       de: 'Shandong University of Technology | Konstruktion, Fertigung und Automatisierung'
     },
@@ -190,7 +190,7 @@
       de: 'Ergebnis: 115 | Eingetragen am 22. März 2026'
     },
     'View Result': { bn: 'ফলাফল দেখুন', zh: '查看结果', ar: 'عرض النتيجة', de: 'Ergebnis ansehen' },
-    'Duolingo English Test': { bn: 'Duolingo English Test', zh: 'Duolingo English Test', ar: 'Duolingo English Test', de: 'Duolingo English Test' },
+    'Duolingo English Test': { bn: 'Duolingo English Test', zh: '多邻国英语测试', ar: 'Duolingo English Test', de: 'Duolingo English Test' },
     'In progress': { bn: 'চলমান', zh: '进行中', ar: 'قيد التقدم', de: 'In Bearbeitung' },
     'Ongoing': { bn: 'চলমান', zh: '持续进行', ar: 'مستمر', de: 'Laufend' },
     'HSK Level 4': { bn: 'HSK লেভেল ৪', zh: 'HSK四级', ar: 'HSK المستوى الرابع', de: 'HSK-Stufe 4' },
@@ -278,7 +278,7 @@
     },
     'Mechanical Engineering Student | Shandong University of Technology': {
       bn: 'মেকানিক্যাল ইঞ্জিনিয়ারিং শিক্ষার্থী | Shandong University of Technology',
-      zh: '机械工程专业学生 | Shandong University of Technology',
+      zh: '机械工程专业学生 | 山东理工大学',
       ar: 'طالب هندسة ميكانيكية | Shandong University of Technology',
       de: 'Maschinenbaustudent | Shandong University of Technology'
     },

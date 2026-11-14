@@ -212,6 +212,11 @@ WHAT TO UPLOAD
   - style.css
   - script.js
   - space-animation.js
+  - i18n.js
+  - translations-core.js
+  - translations-academics.js
+  - translations-cv-achievements.js
+  - translations-remaining-pages.js
 
   Other:
   - sitemap.xml
